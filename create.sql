@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS "entregadores"
 CREATE TABLE IF NOT EXISTS "restaurantes"
 (
     "id"            SERIAL PRIMARY KEY,
-    "cnpj"          varchar(14)              NOT NULL,
+    "cnpj"          varchar(20)              NOT NULL,
     "razao_social"  varchar(255)             NOT NULL,
     "nome_fantasia" varchar(255)             NOT NULL,
     "endereco"      integer                  NOT NULL,
@@ -236,7 +236,6 @@ CREATE TABLE IF NOT EXISTS "pratos"
 (
     "id"             SERIAL PRIMARY KEY,
     "id_macro"       integer                  NOT NULL,
-    "id_ingrediente" integer                  NOT NULL,
     "id_restaurante" integer                  NOT NULL,
     "id_adicional"   integer                  NOT NULL,
     "nome"           varchar(255)             NOT NULL,
@@ -258,10 +257,6 @@ CREATE TABLE IF NOT EXISTS "pratos"
     CONSTRAINT fk_pratos2
         FOREIGN KEY (id_adicional)
             REFERENCES adicionais (id)
-            ON DELETE CASCADE,
-    CONSTRAINT fk_pratos3
-        FOREIGN KEY (id_ingrediente)
-            REFERENCES ingredientes (id)
             ON DELETE CASCADE
 );
 
@@ -293,10 +288,6 @@ CREATE TABLE IF NOT EXISTS "status_pedidos"
     "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"   timestamp with time zone          DEFAULT NULL
 );
-
--- times complaining abt wp
--- IIIIIIIIIIIIIIII
-
 
 CREATE TABLE IF NOT EXISTS "pedidos"
 (
@@ -333,7 +324,6 @@ CREATE TABLE IF NOT EXISTS "metodos_pagamentos" -- Tabela para normalização de
     "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"   timestamp with time zone          DEFAULT NULL
-
 );
 
 CREATE TABLE IF NOT EXISTS "status_pagamentos" -- Ex: 'pendente', 'aprovado'
@@ -372,7 +362,15 @@ CREATE TABLE IF NOT EXISTS "pagamentos_pedidos" -- Associativa entre pagamentos 
     "id_pedido"     integer                  NOT NULL,
     "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "deletado_em"   timestamp with time zone          DEFAULT NULL
+    "deletado_em"   timestamp with time zone          DEFAULT NULL,
+    CONSTRAINT fk_pagamento_pedido
+        FOREIGN KEY (id_pagamento)
+            REFERENCES pagamentos (id)
+            ON DELETE CASCADE,
+    CONSTRAINT fk_pedido1
+        FOREIGN KEY (id_pedido)
+            REFERENCES pedidos (id)
+            ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS "estornos"
@@ -554,4 +552,17 @@ CREATE TABLE IF NOT EXISTS "pedidos_pratos"
             REFERENCES pratos (id)
             ON DELETE CASCADE
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
 

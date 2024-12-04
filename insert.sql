@@ -45,11 +45,7 @@ VALUES (-25.4284, -49.2733, 'PR', 'Curitiba', 'Centro', 'Rua XV de Novembro', '1
        (-25.4500, -49.2700, 'PR', 'Curitiba', 'Centro Cívico', 'Av. Cândido de Abreu', '200', 'Esquina', '80530-000'),
        (-25.4525, -49.2755, 'PR', 'Curitiba', 'Ahú', 'Rua Mateus Leme', '333', 'Anexo', '80510-190'),
        (-25.4450, -49.2705, 'PR', 'Curitiba', 'Rebouças', 'Rua João Negrão', '500', 'Sala 101', '80215-000'),
-       (-25.4595, -49.2890, 'PR', 'Curitiba', 'Santa Felicidade', 'Rua São Braz', '1000', 'Loja 12', '81810-030'),
-       (-25.4590, -49.2610, 'PR', 'Curitiba', 'Batel', 'Av. do Batel', '350', 'Piso Térreo', '80420-060'),
-       (-25.4455, -49.2730, 'PR', 'Curitiba', 'Cabral', 'Rua Bruno Filgueira', '450', 'Apto 301', '80035-180'),
-       (-25.4690, -49.2655, 'PR', 'Curitiba', 'Vila Izabel', 'Rua Prof. João Doetzer', '320', 'Loja A', '81230-020'),
-       (-25.4430, -49.2835, 'PR', 'Curitiba', 'Cristo Rei', 'Rua Francisco Rocha', '850', 'Piso 1', '80060-080');
+       (-25.4595, -49.2890, 'PR', 'Curitiba', 'Santa Felicidade', 'Rua São Braz', '1000', 'Loja 12', '81810-030');
 
 INSERT INTO "objetivos" ("nome_objetivo", "descricao")
 VALUES ('Perda de Peso', 'Reduzir o peso corporal por meio de restrição calórica e exercícios'),
@@ -130,67 +126,168 @@ VALUES (1, 1, 'João', 'Silva', '12345678901', 'MG1234567', 1),
        (9, 9, 'Eduardo', 'Lima', '90123456789', 'MG9012345', 9),
        (10, 10, 'Juliana', 'Barbosa', '01234567890', 'SP0123456', 10);
 
--- INSERT INTO "restaurantes" ("cnpj", "razao_social", "nome_fantasia", "endereco", "pedido_minimo")
--- VALUES ('12.345.678/0001-90', 'Restaurante do Cabral Ltda', 'Restaurante Cabral', 11, 20.00),
---        ('23.456.789/0001-10', 'Centro Cívico Sabor Ltda', 'Cívico Delícias', 12, 31.00),
---        ('34.567.890/0001-20', 'Ahú Restaurante e Cia', 'Ahú Delights', 13, 22.00),
---        ('45.678.901/0001-30', 'Rebouças Grill Ltda', 'Grill Rebouças', 14, 30.00),
---        ('56.789.012/0001-40', 'Santa Felicidade Food', 'Santa Sabor', 15, 15.00),
---        ('67.890.123/0001-50', 'Batel Bistrô', 'Bistrô Batel', 16, 35.00),
---        ('78.901.234/0001-60', 'Curitiba Culinária', 'Curitiba Sabor', 17, 30.00),
---        ('89.012.345/0001-70', 'Vila Velha Restaurante', 'Vila do Sabor', 18, 15.00),
---        ('90.123.456/0001-80', 'Jardim Botânico Gastronomia', 'Botânico Grill', 19, 23.00),
---        ('01.234.567/0001-90', 'Mercês Saboroso', 'Mercês Delícias', 20, 19.00);
+
+-- restaurantes
 --
--- -- Ingredientes
--- INSERT INTO "ingredientes" ("ingrediente", "quantidade", "unidade_de_medida", "kosher", "halal", "alergeno")
--- VALUES ('Arroz', 500, 'gramas', true, true, NULL),
---        ('Feijão', 300, 'gramas', true, true, 'Glúten'),
---        ('Frango', 800, 'gramas', true, true, 'Frutos do mar'),
---        ('Carne', 1000, 'gramas', true, true, 'Soja'),
---        ('Tomate', 400, 'gramas', true, true, NULL),
---        ('Cebola', 150, 'gramas', true, true, NULL),
---        ('Batata', 600, 'gramas', true, true, 'Glúten'),
---        ('Alho', 50, 'gramas', true, true, NULL),
---        ('Queijo', 200, 'gramas', true, true, 'Lactose'),
---        ('Sal', 50, 'gramas', true, true, NULL);
+-- 1. Marombita Marmitaria LTDA
+-- Nome Fantasia: Marombita
+-- Focada em marmitas fit congeladas, preparadas com baixo teor de gordura e sódio, sem adição de conservantes. Os pratos não podem ter ingredientes retirados ou adicionados, mantendo a qualidade e o equilíbrio nutricional.
 --
--- INSERT INTO "macros" ("nome", "carboidratos", "proteinas", "gorduras_saturadas", "fibras", "sodio")
--- VALUES ('Arroz', 78.5, 7.5, 0.4, 1.2, 0.02),
---        ('Feijão', 27.4, 8.7, 0.1, 8.2, 0.09),
---        ('Frango', 0, 31.2, 3.6, 0, 0.07),
---        ('Carne', 0, 26.8, 9.6, 0, 0.09),
---        ('Tomate', 3.9, 0.9, 0.2, 1.2, 0.01),
---        ('Cebola', 9.3, 1.1, 0.1, 1.7, 0.02),
---        ('Batata', 17.5, 2.0, 0.1, 2.2, 0.01),
---        ('Alho', 33.1, 6.4, 0.1, 2.1, 0.02),
---        ('Queijo', 1.3, 20.0, 13.0, 0, 0.09),
---        ('Sal', 0, 0, 0, 0, 38.0);
+-- Pratos:
 --
--- -- Categorias
--- INSERT INTO "categorias" ("nome", "descricao")
--- VALUES ('Quente', 'Pratos servidos quentes'),
---        ('Salgado', 'Pratos salgados, como salgadinhos e petiscos'),
---        ('Doce', 'Sobremesas e doces em geral'),
---        ('Lanche', 'Pratos rápidos, como sanduíches e wraps'),
---        ('Congelado', 'Pratos congelados, aquecer para o consumo');
+--     Frango e Arroz:
+--     150g Arroz, 150g Frango, 50g Legumes | R$ 30,00
+--         Macronutrientes: Proteínas: 35g | Carboidratos: 40g | Gorduras: 5g
 --
+--     Strogonoff de Carne e Arroz:
+--     150g Arroz, 150g Strogonoff, 50g Legumes | R$ 30,00
+--         Macronutrientes: Proteínas: 30g | Carboidratos: 45g | Gorduras: 10g
 --
--- -- Receitas
--- INSERT INTO "receitas" ("id_restaurante", "id_ingrediente", "id_macro", "nome", "categoria", "descricao",
---                         "tempo_preparo", "porcoes", "instrucoes")
--- VALUES (1, 1, 1, 'Arroz com Feijão', 1, 'Arroz e feijão cozidos', 30, 4,
---         'Cozinhe o arroz e feijão separadamente, depois sirva'),
---        (1, 2, 2, 'Feijão Tropeiro', 1, 'Feijão com carne e arroz', 40, 4, 'Frite a carne e misture com feijão e arroz'),
---        (2, 3, 3, 'Frango Grelhado', 1, 'Frango grelhado com tempero especial', 30, 2,
---         'Tempere o frango e grelhe até dourar'),
---        (3, 4, 4, 'Carne de Panela', 1, 'Carne cozida com temperos', 60, 6, 'Cozinhe a carne com cebolas e alho'),
---        (4, 5, 5, 'Molho de Tomate Caseiro', 1, 'Molho de tomate com temperos', 25, 4,
---         'Cozinhe o tomate com alho, cebola e temperos'),
---        (5, 6, 6, 'Cebola Caramelizada', 2, 'Cebola doce caramelizada', 20, 2,
---         'Frite a cebola até dourar e caramelizar'),
---        (6, 7, 7, 'Batata Frita', 2, 'Batatas fritas crocantes', 15, 4, 'Corte as batatas em tiras e frite até dourar'),
---        (7, 8, 8, 'Alho Frito', 2, 'Alho frito crocante', 10, 3, 'Frite o alho até ficar crocante e sirva'),
---        (8, 9, 9, 'Queijo Quente', 3, 'Sanduíche de queijo grelhado', 15, 2,
---         'Coloque o queijo entre duas fatias de pão e grelhe'),
---        (9, 10, 10, 'Salada de Alface', 4, 'Salada fresca de alface', 5, 2, 'Misture as folhas de alface com tempero');
+--     Escondidinho de Frango:
+--     150g Escondidinho, 150g Frango, 50g Legumes | R$ 30,00
+--         Macronutrientes: Proteínas: 32g | Carboidratos: 42g | Gorduras: 8g
+--
+-- 2. VidaLeve Alimentos LTDA
+-- Nome Fantasia: VidaLeve
+-- Comida saudável congelada, sem conservantes, com baixo teor de sódio e gordura. Ideal para quem busca refeições balanceadas e práticas.
+--
+-- Pratos:
+--
+--     Salmão Grelhado com Quinoa:
+--     150g Salmão, 150g Quinoa, 50g Legumes | R$ 35,00
+--         Macronutrientes: Proteínas: 40g | Carboidratos: 35g | Gorduras: 12g
+--
+--     Frango com Batata Doce:
+--     150g Frango, 150g Batata Doce, 50g Legumes | R$ 30,00
+--         Macronutrientes: Proteínas: 35g | Carboidratos: 40g | Gorduras: 5g
+--
+--     Espaguete de Abobrinha ao Molho de Tomate:
+--     150g Espaguete de Abobrinha, 150g Molho, 50g Tofu | R$ 28,00
+--         Macronutrientes: Proteínas: 10g | Carboidratos: 25g | Gorduras: 6g
+--
+--     Almôndegas de Grão-de-Bico:
+--     150g Almôndegas, 150g Arroz Integral, 50g Legumes | R$ 27,00
+--         Macronutrientes: Proteínas: 18g | Carboidratos: 50g | Gorduras: 8g
+--
+-- 3. NutriSabor Alimentos LTDA
+-- Nome Fantasia: NutriSabor
+-- Marmitas funcionais preparadas com ingredientes pesados após o preparo, focadas em uma alimentação equilibrada para atletas e pessoas que buscam saúde.
+--
+-- Pratos:
+--
+--     Tilápia com Arroz Integral:
+--     150g Tilápia, 150g Arroz Integral, 50g Brócolis | R$ 32,00
+--         Macronutrientes: Proteínas: 35g | Carboidratos: 38g | Gorduras: 6g
+--
+--     Carne Moída com Purê de Mandioquinha:
+--     150g Carne Moída, 150g Purê, 50g Legumes | R$ 30,00
+--         Macronutrientes: Proteínas: 32g | Carboidratos: 42g | Gorduras: 10g
+--
+--     Omelete de Claras com Aveia:
+--     150g Omelete, 150g Aveia, 50g Espinafre | R$ 28,00
+--         Macronutrientes: Proteínas: 25g | Carboidratos: 30g | Gorduras: 4g
+--
+--     Hambúrguer de Lentilha com Arroz 7 Grãos:
+--     150g Hambúrguer, 150g Arroz, 50g Legumes | R$ 29,00
+--         Macronutrientes: Proteínas: 20g | Carboidratos: 45g | Gorduras: 7g
+--
+-- 4. GreenPower Cozinha Saudável LTDA
+-- Nome Fantasia: GreenPower
+-- Focada em marmitas veganas e vegetarianas, com alto valor nutricional. Todas as opções são livres de glúten e lactose.
+--
+-- Pratos:
+--
+--     Curry de Grão-de-Bico:
+--     150g Curry, 150g Arroz Basmati, 50g Legumes | R$ 28,00
+--         Macronutrientes: Proteínas: 15g | Carboidratos: 50g | Gorduras: 7g
+--
+--     Tofu Grelhado com Batata Doce:
+--     150g Tofu, 150g Batata Doce, 50g Abóbora | R$ 30,00
+--         Macronutrientes: Proteínas: 20g | Carboidratos: 40g | Gorduras: 8g
+--
+--     Feijoada Vegana com Couve:
+--     150g Feijoada, 150g Arroz Integral, 50g Couve | R$ 29,00
+--         Macronutrientes: Proteínas: 18g | Carboidratos: 45g | Gorduras: 6g
+--
+--     Quibe de Abóbora com Homus:
+--     150g Quibe, 150g Arroz Integral, 50g Homus | R$ 27,00
+--         Macronutrientes: Proteínas: 15g | Carboidratos: 40g | Gorduras: 10g
+--
+-- 5. Empório Vila Duverdii LTDA
+-- Nome Fantasia: Empório Vila Duverdii
+-- Especializado em marmitas fit congeladas, preparadas com ingredientes frescos, sem glúten ou conservantes, com foco em uma alimentação equilibrada e saborosa.
+--
+-- Pratos:
+--
+--     Frango com Batata Doce e Brócolis:
+--     150g Frango, 150g Batata Doce, 50g Brócolis | R$ 30,00
+--         Macronutrientes: Proteínas: 35g | Carboidratos: 40g | Gorduras: 5g
+--
+--     Tilápia com Purê de Abóbora:
+--     150g Tilápia, 150g Purê, 50g Couve | R$ 32,00
+--         Macronutrientes: Proteínas: 35g | Carboidratos: 35g | Gorduras: 6g
+--
+--     Strogonoff de Frango com Arroz Integral:
+--     150g Strogonoff, 150g Arroz Integral, 50g Ervilhas | R$ 30,00
+--         Macronutrientes: Proteínas: 30g | Carboidratos: 42g | Gorduras: 8g
+--
+--     Quibe de Quinoa com Homus:
+--     150g Quibe, 150g Arroz 7 Grãos, 50g Homus | R$ 28,00
+--         Macronutrientes: Proteínas: 18g | Carboidratos: 45g | Gorduras: 10g
+--
+--     Almôndegas de Frango com Espaguete Integral:
+--     150g Almôndegas, 150g Espaguete Integral, 50g Molho Pesto | R$ 30,00
+--         Macronutrientes: Proteínas: 30g | Carboidratos: 40g | Gorduras: 7g
+
+-- macros
+-- adicionais
+-- categorias
+-- ingredientes
+-- pratos
+-- ingredietes-pratos
+
+
+-- "status_pedidos"
+-- "pedidos"
+-- "metodos_pagamento"
+
+INSERT INTO "metodos_pagamentos" ("método")
+VALUES ('Crédito'),
+       ('Débito'),
+       ('Dinheiro'),
+       ('Pix'),
+       ('Vale-refeição');
+
+-- "status_pagamentos"
+INSERT INTO "status_pagamentos" ("status")
+VALUES ('Autorizado'),
+       ('Processando'),
+       ('Pendente'),
+       ('Cancelado'),
+       ('Negado');
+
+-- "pagamentos"
+
+-- "pagamentos_pedidos"
+
+-- "estornos"
+
+
+-- "avaliacoes_restaurantes"
+
+-- "avaliacoes_pratos"
+
+-- "avaliacoes_entregadores"
+
+-- "restricoes_alimentares"
+
+
+-- "cupons"
+
+-- "preferências"
+
+-- "necessidades_nutricionais"
+
+-- "necessidades_clientes"
+
+-- "pedidos_pratos"
