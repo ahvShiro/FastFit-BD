@@ -192,8 +192,8 @@ CREATE TABLE IF NOT EXISTS "macros"
     "carboidratos"       numeric(10, 2)           NOT NULL,
     "proteinas"          numeric(10, 2)           NOT NULL,
     "gorduras_saturadas" numeric(10, 2)           NOT NULL,
-    "fibras"             numeric(10, 2)           NOT NULL,
-    "sodio"              numeric(10, 2)           NOT NULL,
+    "fibras"             numeric(10, 2),
+    "sodio"              numeric(10, 2),
     "criado_em"          timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em"      timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"        timestamp with time zone          DEFAULT NULL
@@ -335,7 +335,7 @@ CREATE TABLE IF NOT EXISTS "status_pagamentos" -- Ex: 'pendente', 'aprovado'
     "deletado_em"   timestamp with time zone          DEFAULT NULL
 );
 
-CREATE TABLE IF NOT EXISTS pagamentos
+CREATE TABLE IF NOT EXISTS "pagamentos"
 (
     id               SERIAL PRIMARY KEY,
     data_pagamento   timestamp with time zone          DEFAULT CURRENT_TIMESTAMP,

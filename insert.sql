@@ -1,4 +1,4 @@
-INSERT INTO tipos_telefone (tipo)
+INSERT INTO "tipos_telefone" (tipo)
 VALUES ('Residencial'),
        ('Comercial'),
        ('Fax'),
@@ -21,12 +21,7 @@ VALUES ('(41) 99999-1234', 4),
        ('(41) 3421-4321', 2),
        ('(41) 3456-7890', 2),
        ('(41) 4321-4321', 2),
-       ('(41) 4764-5423', 2),
-       ('(41) 3045-2132', 2),
-       ('(41) 3422-0234', 2),
-       ('(41) 3034-2953', 2),
-       ('(41) 3045-1823', 2),
-       ('(41) 4391-1053', 2);
+       ('(41) 4764-5423', 2);
 
 INSERT INTO "enderecos" ("latitude", "longitude", "estado", "cidade", "bairro", "rua", "numero", "complemento", "cep")
 VALUES (-25.4284, -49.2733, 'PR', 'Curitiba', 'Centro', 'Rua XV de Novembro', '123', 'Apto 301', '80020-310'),
@@ -62,7 +57,6 @@ VALUES ('Sedentário', 'Pouca ou nenhuma atividade física diária'),
        ('Moderadamente Ativo', 'Exercício moderado ou atividades físicas regulares'),
        ('Muito Ativo', 'Exercício intenso ou trabalho físico diário'),
        ('Extremamente Ativo', 'Treinamento atlético ou trabalho físico muito exigente');
-
 
 INSERT INTO "dados_corporais" ("objetivo", "idade", "sexo", "altura", "peso", "porcentagem_gordura", "nivel_atividade",
                                "circunferencia_pescoco", "circunferencia_peito", "circunferencia_quadril",
@@ -126,130 +120,168 @@ VALUES (1, 1, 'João', 'Silva', '12345678901', 'MG1234567', 1),
        (9, 9, 'Eduardo', 'Lima', '90123456789', 'MG9012345', 9),
        (10, 10, 'Juliana', 'Barbosa', '01234567890', 'SP0123456', 10);
 
+INSERT INTO "restaurantes" ("cnpj", "razao_social", "nome_fantasia", "id_endereco", "taxa_entrega")
+VALUES
+('00.000.001/0001-01', 'Marombita Marmitaria LTDA', 'Marombita', 11, 30.00),
+('00.000.002/0001-02', 'VidaLeve Alimentos LTDA', 'VidaLeve', 12, 25.00),
+('00.000.003/0001-03', 'NutriSabor Alimentos LTDA', 'NutriSabor', 13, 20.00),
+('00.000.004/0001-04', 'GreenPower Cozinha Saudável LTDA', 'GreenPower', 14, 30.00),
+('00.000.005/0001-05', 'Empório Vila Duverdii LTDA', 'Empório Vila Duverdii', 15, 25.00);
 
--- restaurantes
---
--- 1. Marombita Marmitaria LTDA
--- Nome Fantasia: Marombita
--- Focada em marmitas fit congeladas, preparadas com baixo teor de gordura e sódio, sem adição de conservantes. Os pratos não podem ter ingredientes retirados ou adicionados, mantendo a qualidade e o equilíbrio nutricional.
---
--- Pratos:
---
---     Frango e Arroz:
---     150g Arroz, 150g Frango, 50g Legumes | R$ 30,00
---         Macronutrientes: Proteínas: 35g | Carboidratos: 40g | Gorduras: 5g
---
---     Strogonoff de Carne e Arroz:
---     150g Arroz, 150g Strogonoff, 50g Legumes | R$ 30,00
---         Macronutrientes: Proteínas: 30g | Carboidratos: 45g | Gorduras: 10g
---
---     Escondidinho de Frango:
---     150g Escondidinho, 150g Frango, 50g Legumes | R$ 30,00
---         Macronutrientes: Proteínas: 32g | Carboidratos: 42g | Gorduras: 8g
---
--- 2. VidaLeve Alimentos LTDA
--- Nome Fantasia: VidaLeve
--- Comida saudável congelada, sem conservantes, com baixo teor de sódio e gordura. Ideal para quem busca refeições balanceadas e práticas.
---
--- Pratos:
---
---     Salmão Grelhado com Quinoa:
---     150g Salmão, 150g Quinoa, 50g Legumes | R$ 35,00
---         Macronutrientes: Proteínas: 40g | Carboidratos: 35g | Gorduras: 12g
---
---     Frango com Batata Doce:
---     150g Frango, 150g Batata Doce, 50g Legumes | R$ 30,00
---         Macronutrientes: Proteínas: 35g | Carboidratos: 40g | Gorduras: 5g
---
---     Espaguete de Abobrinha ao Molho de Tomate:
---     150g Espaguete de Abobrinha, 150g Molho, 50g Tofu | R$ 28,00
---         Macronutrientes: Proteínas: 10g | Carboidratos: 25g | Gorduras: 6g
---
---     Almôndegas de Grão-de-Bico:
---     150g Almôndegas, 150g Arroz Integral, 50g Legumes | R$ 27,00
---         Macronutrientes: Proteínas: 18g | Carboidratos: 50g | Gorduras: 8g
---
--- 3. NutriSabor Alimentos LTDA
--- Nome Fantasia: NutriSabor
--- Marmitas funcionais preparadas com ingredientes pesados após o preparo, focadas em uma alimentação equilibrada para atletas e pessoas que buscam saúde.
---
--- Pratos:
---
---     Tilápia com Arroz Integral:
---     150g Tilápia, 150g Arroz Integral, 50g Brócolis | R$ 32,00
---         Macronutrientes: Proteínas: 35g | Carboidratos: 38g | Gorduras: 6g
---
---     Carne Moída com Purê de Mandioquinha:
---     150g Carne Moída, 150g Purê, 50g Legumes | R$ 30,00
---         Macronutrientes: Proteínas: 32g | Carboidratos: 42g | Gorduras: 10g
---
---     Omelete de Claras com Aveia:
---     150g Omelete, 150g Aveia, 50g Espinafre | R$ 28,00
---         Macronutrientes: Proteínas: 25g | Carboidratos: 30g | Gorduras: 4g
---
---     Hambúrguer de Lentilha com Arroz 7 Grãos:
---     150g Hambúrguer, 150g Arroz, 50g Legumes | R$ 29,00
---         Macronutrientes: Proteínas: 20g | Carboidratos: 45g | Gorduras: 7g
---
--- 4. GreenPower Cozinha Saudável LTDA
--- Nome Fantasia: GreenPower
--- Focada em marmitas veganas e vegetarianas, com alto valor nutricional. Todas as opções são livres de glúten e lactose.
---
--- Pratos:
---
---     Curry de Grão-de-Bico:
---     150g Curry, 150g Arroz Basmati, 50g Legumes | R$ 28,00
---         Macronutrientes: Proteínas: 15g | Carboidratos: 50g | Gorduras: 7g
---
---     Tofu Grelhado com Batata Doce:
---     150g Tofu, 150g Batata Doce, 50g Abóbora | R$ 30,00
---         Macronutrientes: Proteínas: 20g | Carboidratos: 40g | Gorduras: 8g
---
---     Feijoada Vegana com Couve:
---     150g Feijoada, 150g Arroz Integral, 50g Couve | R$ 29,00
---         Macronutrientes: Proteínas: 18g | Carboidratos: 45g | Gorduras: 6g
---
---     Quibe de Abóbora com Homus:
---     150g Quibe, 150g Arroz Integral, 50g Homus | R$ 27,00
---         Macronutrientes: Proteínas: 15g | Carboidratos: 40g | Gorduras: 10g
---
--- 5. Empório Vila Duverdii LTDA
--- Nome Fantasia: Empório Vila Duverdii
--- Especializado em marmitas fit congeladas, preparadas com ingredientes frescos, sem glúten ou conservantes, com foco em uma alimentação equilibrada e saborosa.
---
--- Pratos:
---
---     Frango com Batata Doce e Brócolis:
---     150g Frango, 150g Batata Doce, 50g Brócolis | R$ 30,00
---         Macronutrientes: Proteínas: 35g | Carboidratos: 40g | Gorduras: 5g
---
---     Tilápia com Purê de Abóbora:
---     150g Tilápia, 150g Purê, 50g Couve | R$ 32,00
---         Macronutrientes: Proteínas: 35g | Carboidratos: 35g | Gorduras: 6g
---
---     Strogonoff de Frango com Arroz Integral:
---     150g Strogonoff, 150g Arroz Integral, 50g Ervilhas | R$ 30,00
---         Macronutrientes: Proteínas: 30g | Carboidratos: 42g | Gorduras: 8g
---
---     Quibe de Quinoa com Homus:
---     150g Quibe, 150g Arroz 7 Grãos, 50g Homus | R$ 28,00
---         Macronutrientes: Proteínas: 18g | Carboidratos: 45g | Gorduras: 10g
---
---     Almôndegas de Frango com Espaguete Integral:
---     150g Almôndegas, 150g Espaguete Integral, 50g Molho Pesto | R$ 30,00
---         Macronutrientes: Proteínas: 30g | Carboidratos: 40g | Gorduras: 7g
-
--- macros
--- adicionais
--- categorias
--- ingredientes
--- pratos
--- ingredietes-pratos
+INSERT INTO "macros" ("proteinas", "carboidratos", "gorduras")
+VALUES
+(35, 40, 5),
+(30, 45, 10),
+(32, 42, 8),
+(40, 35, 12),
+(35, 40, 5),
+(10, 25, 6),
+(18, 50, 8),
+(35, 38, 6),
+(32, 42, 10),
+(25, 30, 4),
+(20, 45, 7),
+(15, 50, 7),
+(20, 40, 8),
+(18, 45, 6),
+(15, 40, 10),
+(35, 40, 5),
+(35, 35, 6),
+(30, 42, 8),
+(18, 45, 10),
+(30, 40, 7);
 
 
--- "status_pedidos"
--- "pedidos"
--- "metodos_pagamento"
+-- INSERIR EM TABELA ADICIONAIS
+
+
+INSERT INTO "categorias" ("nome", "descricao")
+VALUES
+('Fit', 'Alimentação saudável e balanceada'),
+('Vegano', 'Pratos sem ingredientes de origem animal'),
+('Vegetariano', 'Pratos sem carne'),
+('Sem Glúten', 'Pratos livres de glúten'),
+('Sem Lactose', 'Pratos sem lactose'),
+('Congelado', 'Pratos congelados para aquecimento'),
+('Quente', 'Pratos prontos para consumo'),
+('Almoço', 'Opções para o horário de almoço'),
+('Janta', 'Opções para o jantar'),
+('Lanche', 'Lanches e petiscos');
+
+INSERT INTO "ingredientes" ("nome", "descricao")
+VALUES
+('Arroz', 'Arroz branco cozido'),
+('Frango', 'Peito de frango grelhado'),
+('Legumes', 'Mix de legumes cozidos'),
+('Strogonoff', 'Strogonoff de carne'),
+('Escondidinho', 'Escondidinho de batata'),
+('Quinoa', 'Quinoa cozida'),
+('Salmão', 'Salmão grelhado'),
+('Batata Doce', 'Batata doce cozida'),
+('Espaguete de Abobrinha', 'Espaguete feito com abobrinha'),
+('Molho de Tomate', 'Molho de tomate caseiro'),
+('Tofu', 'Tofu grelhado'),
+('Almôndegas de Grão-de-Bico', 'Almôndegas veganas'),
+('Arroz Integral', 'Arroz integral cozido'),
+('Tilápia', 'Tilápia grelhada'),
+('Carne Moída', 'Carne moída bovina'),
+('Purê de Mandioquinha', 'Purê de mandioquinha'),
+('Aveia', 'Aveia em flocos'),
+('Omelete de Claras', 'Omelete feito com claras de ovo'),
+('Espinafre', 'Espinafre refogado'),
+('Hambúrguer de Lentilha', 'Hambúrguer vegano'),
+('Arroz 7 Grãos', 'Arroz com sete grãos'),
+('Curry', 'Curry de grão-de-bico'),
+('Arroz Basmati', 'Arroz basmati cozido'),
+('Abóbora', 'Abóbora assada'),
+('Feijoada Vegana', 'Feijoada sem carne'),
+('Couve', 'Couve refogada'),
+('Quibe', 'Quibe de quinoa ou abóbora'),
+('Homus', 'Pasta de grão-de-bico'),
+('Molho Pesto', 'Molho pesto caseiro'),
+('Ervilhas', 'Ervilhas frescas'),
+('Brócolis', 'Brócolis cozido'),
+('Purê de Abóbora', 'Purê de abóbora'),
+('Almôndegas de Frango', 'Almôndegas de frango'),
+('Espaguete Integral', 'Espaguete feito com farinha integral');
+
+INSERT INTO "pratos" ("nome", "descricao", "preco", "id_restaurante", "id_macros")
+VALUES
+('Frango e Arroz', '150g Arroz, 150g Frango, 50g Legumes', 30.00, 1, 1),
+('Strogonoff de Carne e Arroz', '150g Arroz, 150g Strogonoff, 50g Legumes', 30.00, 1, 2),
+('Escondidinho de Frango', '150g Escondidinho, 150g Frango, 50g Legumes', 30.00, 1, 3),
+('Salmão Grelhado com Quinoa', '150g Salmão, 150g Quinoa, 50g Legumes', 35.00, 2, 4),
+('Frango com Batata Doce', '150g Frango, 150g Batata Doce, 50g Legumes', 30.00, 2, 5),
+('Espaguete de Abobrinha ao Molho de Tomate', '150g Espaguete de Abobrinha, 150g Molho de Tomate, 50g Tofu', 28.00, 2, 6),
+('Almôndegas de Grão-de-Bico', '150g Almôndegas, 150g Arroz Integral, 50g Legumes', 27.00, 2, 7),
+('Tilápia com Arroz Integral', '150g Tilápia, 150g Arroz Integral, 50g Brócolis', 32.00, 3, 8),
+('Carne Moída com Purê de Mandioquinha', '150g Carne Moída, 150g Purê, 50g Legumes', 30.00, 3, 9),
+('Omelete de Claras com Aveia', '150g Omelete, 150g Aveia, 50g Espinafre', 28.00, 3, 10),
+('Hambúrguer de Lentilha com Arroz 7 Grãos', '150g Hambúrguer, 150g Arroz, 50g Legumes', 29.00, 3, 11),
+('Curry de Grão-de-Bico', '150g Curry, 150g Arroz Basmati, 50g Legumes', 28.00, 4, 12),
+('Tofu Grelhado com Batata Doce', '150g Tofu, 150g Batata Doce, 50g Abóbora', 30.00, 4, 13),
+('Feijoada Vegana com Couve', '150g Feijoada, 150g Arroz Integral, 50g Couve', 29.00, 4, 14),
+('Quibe de Abóbora com Homus', '150g Quibe, 150g Arroz Integral, 50g Homus', 27.00, 4, 15),
+('Frango com Batata Doce e Brócolis', '150g Frango, 150g Batata Doce, 50g Brócolis', 30.00, 5, 16),
+('Tilápia com Purê de Abóbora', '150g Tilápia, 150g Purê, 50g Couve', 32.00, 5, 17),
+('Strogonoff de Frango com Arroz Integral', '150g Strogonoff, 150g Arroz Integral, 50g Ervilhas', 30.00, 5, 18),
+('Quibe de Quinoa com Homus', '150g Quibe, 150g Arroz 7 Grãos, 50g Homus', 28.00, 5, 19),
+('Almôndegas de Frango com Espaguete Integral', '150g Almôndegas, 150g Espaguete Integral, 50g Molho Pesto', 30.00, 5, 20);
+
+-- ingredientes_pratos
+INSERT INTO "ingredientes_pratos" ("id_prato", "id_ingrediente")
+VALUES
+(1, 1), (1, 2), (1, 3),
+(2, 1), (2, 4), (2, 3),
+(3, 5), (3, 2), (3, 3),
+(4, 7), (4, 6), (4, 3),
+(5, 2), (5, 8), (5, 3),
+(6, 9), (6, 10), (6, 11),
+(7, 12), (7, 13), (7, 3),
+(8, 14), (8, 13), (8, 31),
+(9, 15), (9, 16), (9, 3),
+(10, 18), (10, 17), (10, 19),
+(11, 20), (11, 21), (11, 3),
+(12, 22), (12, 23), (12, 3),
+(13, 11), (13, 8), (13, 24),
+(14, 25), (14, 13), (14, 26),
+(15, 27), (15, 13), (15, 28),
+(16, 2), (16, 8), (16, 31),
+(17, 14), (17, 32), (17, 26),
+(18, 4), (18, 13), (18, 30),
+(19, 27), (19, 21), (19, 28),
+(20, 33), (20, 34), (20, 29);
+
+INSERT INTO "status_pedidos" ("status")
+VALUES 
+('Aguardando Confirmação'),
+('Em Preparação'),
+('Aguardando Entregador'),
+('Em Rota de Entrega'),
+('Entregue'),
+('Cancelado'),
+('Recusado'),
+('Finalizado'),
+('Em Atraso'),
+('Devolvido');
+
+INSERT INTO "pedidos" ("id_cliente", "id_restaurante", "id_entregador", "id_status_entrega")
+VALUES 
+(1, 1, 1, 5),
+(2, 2, 2, 5),
+(3, 3, 3, 5),
+(4, 4, 4, 5),
+(5, 5, 5, 5),
+(6, 1, 6, 4),
+(7, 2, 7, 4),
+(8, 3, 8, 3),
+(9, 4, 9, 2),
+(10, 5, 10, 1),
+(1, 2, 1, 5),
+(2, 3, 2, 5),
+(3, 4, 3, 5),
+(4, 5, 4, 5),
+(5, 1, 5, 5);
 
 INSERT INTO "metodos_pagamentos" ("método")
 VALUES ('Crédito'),
@@ -266,28 +298,65 @@ VALUES ('Autorizado'),
        ('Cancelado'),
        ('Negado');
 
--- "pagamentos"
+INSERT INTO "pagamentos" ("data_pagamento", "valor_pago", "metodo_pagamento", "status_pagamento")
+VALUES 
+(CURRENT_TIMESTAMP, 30.00, 1, 1),
+(CURRENT_TIMESTAMP, 35.00, 2, 1),
+(CURRENT_TIMESTAMP, 28.00, 3, 1),
+(CURRENT_TIMESTAMP, 32.00, 4, 1),
+(CURRENT_TIMESTAMP, 30.00, 5, 1),
+(CURRENT_TIMESTAMP, 28.00, 1, 1),
+(CURRENT_TIMESTAMP, 29.00, 2, 1),
+(CURRENT_TIMESTAMP, 28.00, 3, 2),
+(CURRENT_TIMESTAMP, 30.00, 4, 2),
+(CURRENT_TIMESTAMP, 29.00, 5, 3),
+(CURRENT_TIMESTAMP, 27.00, 1, 1),
+(CURRENT_TIMESTAMP, 30.00, 2, 1),
+(CURRENT_TIMESTAMP, 32.00, 3, 1),
+(CURRENT_TIMESTAMP, 30.00, 4, 1),
+(CURRENT_TIMESTAMP, 28.00, 5, 1);
 
--- "pagamentos_pedidos"
 
--- "estornos"
-
-
--- "avaliacoes_restaurantes"
-
--- "avaliacoes_pratos"
-
--- "avaliacoes_entregadores"
-
--- "restricoes_alimentares"
+-- INSERIR EM TABELA pagamentos_pedidos
+-- INSERIR EM TABELA estornos
+-- INSERIR EM TABELA avaliacoes_restaurantes
+-- INSERIR EM TABELA avaliacoes_pratos
+-- INSERIR EM TABELA avaliacoes_entregadores
 
 
--- "cupons"
+INSERT INTO "restricoes_alimentares" ("id_cliente", "id_ingrediente")
+VALUES 
+(1, 4),  -- Cliente 1 não pode comer strogonoff
+(2, 11), -- Cliente 2 não pode comer tofu
+(3, 15), -- Cliente 3 não pode comer carne moída
+(4, 7),  -- Cliente 4 não pode comer salmão
+(5, 8),  -- Cliente 5 não pode comer batata doce
+(6, 12), -- Cliente 6 não pode comer grão-de-bico
+(7, 14), -- Cliente 7 não pode comer tilápia
+(8, 20), -- Cliente 8 não pode comer lentilha
+(9, 25), -- Cliente 9 não pode comer feijoada
+(10, 28); -- Cliente 10 não pode comer homus
 
--- "preferências"
 
--- "necessidades_nutricionais"
 
--- "necessidades_clientes"
+-- INSERIR EM TABELA cupons
+-- INSERIR EM TABELA preferencias
 
--- "pedidos_pratos"
+
+
+INSERT INTO "necessidades_nutricionais" 
+("tipo_refeicao", "calorias", "proteinas", "carboidratos", "fibras", "gorduras_trans", "sodio", "gorduras_saturadas")
+VALUES 
+('Café da Manhã', 400, 20, 50, 5, 0, 200, 2),
+('Almoço', 700, 35, 80, 8, 0, 400, 4),
+('Lanche', 300, 15, 40, 4, 0, 150, 2),
+('Janta', 600, 30, 70, 7, 0, 350, 3),
+('Pré-treino', 250, 20, 30, 3, 0, 100, 1),
+('Pós-treino', 350, 25, 45, 4, 0, 150, 2),
+('Ceia', 200, 10, 25, 3, 0, 100, 1),
+('Colação', 150, 8, 20, 2, 0, 80, 1),
+('Pré-competição', 450, 25, 60, 5, 0, 200, 2),
+('Recuperação', 500, 30, 65, 6, 0, 250, 3);
+
+-- INSERIR EM TABELA necessidades_clientes
+-- INSERIR EM TABELA pedidos_pratos
