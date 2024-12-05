@@ -320,7 +320,7 @@ CREATE TABLE IF NOT EXISTS "pedidos"
 CREATE TABLE IF NOT EXISTS "metodos_pagamentos" -- Tabela para normalização de dados; Ex: 'cartão', 'PIX', ''
 (
     "id"            SERIAL PRIMARY KEY,
-    "método"        varchar(64)              NOT NULL,
+    "metodo"        varchar(64)              NOT NULL,
     "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"   timestamp with time zone          DEFAULT NULL
@@ -487,7 +487,7 @@ CREATE TABLE IF NOT EXISTS "preferencias"
 (
     "id"            SERIAL PRIMARY KEY,
     "id_cliente"    integer                  NOT NULL,
-    "id_prato"      integer                  NOT NULL,
+    "id_prato"      integer,
     "filtro_usado"  varchar(255)             NOT NULL,
     "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,

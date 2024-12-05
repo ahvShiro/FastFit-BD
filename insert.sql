@@ -73,16 +73,16 @@ VALUES (1, 25, 'M', 1.75, 75.50, 18.5, 3, 38.00, 100.00, 98.00, 55.00),
        (2, 50, 'I', 1.67, 72.00, 32.0, 2, 35.50, 94.00, 98.50, 60.00);
 
 INSERT INTO "clientes" ("id_endereco", "id_dados_corporais", "id_telefone", "nome", "sobrenome", "email", "senha")
-VALUES (1, 1, 1, 'Lucas', 'Silva', 'lucas.silva@email.com', '**********'),
-       (2, 2, 2, 'Ana', 'Pereira', 'ana.pereira@email.com', '************'),
-       (3, 3, 3, 'Carlos', 'Souza', 'carlos.souza@email.com', '*********'),
-       (4, 4, 4, 'Juliana', 'Costa', 'juliana.costa@email.com', '***********'),
-       (5, 5, 5, 'Alex', 'Mendes', 'alex.mendes@email.com', '********'),
-       (6, 6, 6, 'Fernanda', 'Almeida', 'fernanda.almeida@email.com', '************'),
-       (7, 7, 7, 'Renato', 'Martins', 'renato.martins@email.com', '**********'),
-       (8, 8, 8, 'Patricia', 'Lima', 'patricia.lima@email.com', '********'),
-       (9, 9, 9, 'José', 'Oliveira', 'jose.oliveira@email.com', '*********'),
-       (10, 10, 10, 'Kai', 'Rodrigues', 'kai.rodrigues@email.com', '***********');
+VALUES (1, 1, 1, 'Lucas', 'Silva', 'lucas.silva@email.com', '***sei que***'),
+       (2, 2, 2, 'Ana', 'Pereira', 'ana.pereira@email.com', '***credencial no***'),
+       (3, 3, 3, 'Carlos', 'Souza', 'carlos.souza@email.com', '***hard code é**'),
+       (4, 4, 4, 'Juliana', 'Costa', 'juliana.costa@email.com', '***uma vulnerabilidade***'),
+       (5, 5, 5, 'Alex', 'Mendes', 'alex.mendes@email.com', '***mas não sei***'),
+       (6, 6, 6, 'Fernanda', 'Almeida', 'fernanda.almeida@email.com', '***como armazenar***'),
+       (7, 7, 7, 'Renato', 'Martins', 'renato.martins@email.com', '***essas senhas**'),
+       (8, 8, 8, 'Patricia', 'Lima', 'patricia.lima@email.com', '***nesse contexto***'),
+       (9, 9, 9, 'José', 'Oliveira', 'jose.oliveira@email.com', '***e nem**'),
+       (10, 10, 10, 'Kai', 'Rodrigues', 'kai.rodrigues@email.com', '***criptografar elas**');
 
 INSERT INTO "veiculos" ("tipo", "placa", "modelo", "marca")
 VALUES ('Moto', 'ABC-1234', 'CG 160', 'Honda'),
@@ -283,7 +283,7 @@ VALUES
 (4, 5, 4, 5),
 (5, 1, 5, 5);
 
-INSERT INTO "metodos_pagamentos" ("método")
+INSERT INTO "metodos_pagamentos" ("metodo")
 VALUES ('Crédito'),
        ('Débito'),
        ('Dinheiro'),
@@ -318,10 +318,59 @@ VALUES
 
 
 -- INSERIR EM TABELA pagamentos_pedidos
+INSERT INTO "pagamentos_pedidos" ("id_pagamento", "id_pedido")
+VALUES 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
 -- INSERIR EM TABELA estornos
+INSERT INTO "estornos" ("id_pagamento", "valor", "motivo")
+VALUES 
+(7, 30.00, 'Pedido incorreto'),
+(8, 35.00, 'Pedido incirreto');
+
 -- INSERIR EM TABELA avaliacoes_restaurantes
+INSERT INTO "avaliacoes_restaurantes" ("id_cliente", "id_restaurante", "nota", "comentario")
+VALUES 
+(1, 1, 5, 'Excelente comida e serviço!'),
+(2, 2, 4, 'Muito bom, mas poderia ser mais rápido.'),
+(3, 3, 3, 'Comida boa, mas entrega atrasada.'),
+(4, 4, 5, 'Adorei! Vou pedir novamente.'),
+(5, 5, 4, 'Bom, mas poderia ter mais opções no cardápio.');
+
+
 -- INSERIR EM TABELA avaliacoes_pratos
+INSERT INTO "avaliacoes_pratos" ("id_cliente", "id_prato", "nota", "comentario")
+VALUES 
+(1, 1, 5, 'Delicioso!'),
+(2, 2, 4, 'Muito bom, mas um pouco salgado.'),
+(3, 3, 3, 'Gostei, mas poderia ser mais temperado.'),
+(4, 4, 5, 'Perfeito!'),
+(5, 5, 4, 'Bom, mas a porção poderia ser maior.');
+
+
 -- INSERIR EM TABELA avaliacoes_entregadores
+INSERT INTO "avaliacoes_entregadores" ("id_cliente", "id_entregador", "nota", "comentario")
+VALUES 
+(1, 1, 5, 'Entregador muito educado e pontual.'),
+(2, 2, 4, 'Bom serviço, mas poderia ser mais rápido.'),
+(3, 3, 3, 'Entrega atrasada, mas entregador educado.'),
+(4, 4, 5, 'Excelente serviço!'),
+(5, 5, 4, 'Bom, mas poderia ser mais rápido.');
+
 
 
 INSERT INTO "restricoes_alimentares" ("id_cliente", "id_ingrediente")
@@ -340,8 +389,22 @@ VALUES
 
 
 -- INSERIR EM TABELA cupons
--- INSERIR EM TABELA preferencias
+INSERT INTO "cupons" ("codigo", "descricao", "desconto", "data_inicio", "data_fim", "id_restaurante")
+VALUES 
+('PROMO10', 'Desconto de 10%', 10.00, '2023-01-01', '2023-12-31', 1),
+('PROMO20', 'Desconto de 20%', 20.00, '2023-01-01', '2023-12-31', 2),
+('PROMO30', 'Desconto de 30%', 30.00, '2023-01-01', '2023-12-31', 3),
+('PROMO40', 'Desconto de 40%', 40.00, '2023-01-01', '2023-12-31', 4),
+('PROMO50', 'Desconto de 50%', 50.00, '2023-01-01', '2023-12-31', 5);
 
+-- INSERIR EM TABELA preferencias
+INSERT INTO "preferencias" ("id_cliente", "id_prato", "filtro_usado")
+VALUES 
+(1, NULL, 'Fit'),
+(2, 2, 'Vegano'),
+(2, NULL, 'Halal'),
+(4, 4, 'Janta Sem Glúten'),
+(5, 5, 'Sem Lactose');
 
 
 INSERT INTO "necessidades_nutricionais" 
@@ -359,4 +422,43 @@ VALUES
 ('Recuperação', 500, 30, 65, 6, 0, 250, 3);
 
 -- INSERIR EM TABELA necessidades_clientes
+
+INSERT INTO "necessidades_clientes" ("id_necessidades_nutricionais", "id_cliente")
+VALUES 
+(1, 1),  -- Lucas: Café da Manhã
+(2, 2),  -- Ana: Almoço
+(3, 3),  -- Carlos: Lanche
+(4, 4),  -- Juliana: Janta
+(5, 5),  -- Alex: Pré-treino
+(6, 6),  -- Fernanda: Pós-treino
+(7, 7),  -- Renato: Ceia
+(8, 8),  -- Patricia: Colação
+(9, 9),  -- José: Pré-competição
+(10, 10); -- Kai: Recuperação
+
 -- INSERIR EM TABELA pedidos_pratos
+
+INSERT INTO "pedidos_pratos" ("id_pedido", "id_prato", "quantidade")
+VALUES 
+(1, 1, 1),  -- Pedido 1: Frango e Arroz
+(2, 2, 1),  -- Pedido 2: Strogonoff de Carne e Arroz
+(3, 3, 1),  -- Pedido 3: Escondidinho de Frango
+(4, 4, 1),  -- Pedido 4: Salmão Grelhado com Quinoa
+(5, 5, 1),  -- Pedido 5: Frango com Batata Doce
+(6, 6, 1),  -- Pedido 6: Espaguete de Abobrinha ao Molho de Tomate
+(7, 7, 1),  -- Pedido 7: Almôndegas de Grão-de-Bico
+(8, 8, 1),  -- Pedido 8: Tilápia com Arroz Integral
+(9, 9, 1),  -- Pedido 9: Carne Moída com Purê de Mandioquinha
+(10, 10, 1), -- Pedido 10: Omelete de Claras com Aveia
+(11, 11, 1), -- Pedido 11: Hambúrguer de Lentilha com Arroz 7 Grãos
+(12, 12, 1), -- Pedido 12: Curry de Grão-de-Bico
+(13, 13, 1), -- Pedido 13: Tofu Grelhado com Batata Doce
+(14, 14, 1), -- Pedido 14: Feijoada Vegana com Couve
+(15, 15, 1), -- Pedido 15: Quibe de Abóbora com Homus
+(16, 16, 1), -- Pedido 16: Frango com Batata Doce e Brócolis
+(17, 17, 1), -- Pedido 17: Tilápia com Purê de Abóbora
+(18, 18, 1), -- Pedido 18: Strogonoff de Frango com Arroz Integral
+(19, 19, 1), -- Pedido 19: Quibe de Quinoa com Homus
+(20, 20, 1); -- Pedido 20: Almôndegas de Frango com Espaguete Integral
+
+
