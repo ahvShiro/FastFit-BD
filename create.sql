@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS "dados_corporais"
             ON DELETE CASCADE
 );
 
-
 CREATE TABLE IF NOT EXISTS "clientes"
 (
     "id"                 SERIAL PRIMARY KEY,
@@ -175,31 +174,33 @@ CREATE TABLE IF NOT EXISTS "restaurantes"
     "cnpj"          varchar(20)              NOT NULL,
     "razao_social"  varchar(255)             NOT NULL,
     "nome_fantasia" varchar(255)             NOT NULL,
-    "endereco"      integer                  NOT NULL,
-    "pedido_minimo" numeric(10, 2)           NOT NULL,
+    "id_endereco"   integer                  NOT NULL,
+    "pedido_minimo" numeric(10, 2),
+    "taxa_entrega"  numeric(10, 2),
     "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"   timestamp with time zone          DEFAULT NULL,
     CONSTRAINT fk_restaurantes
-        FOREIGN KEY (endereco)
+        FOREIGN KEY (id_endereco)
             REFERENCES enderecos (id)
             ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS "macros"
 (
-    "id"                 SERIAL PRIMARY KEY,
-    "carboidratos"       numeric(10, 2)           NOT NULL,
-    "proteinas"          numeric(10, 2)           NOT NULL,
-    "gorduras_saturadas" numeric(10, 2)           NOT NULL,
-    "fibras"             numeric(10, 2),
-    "sodio"              numeric(10, 2),
-    "criado_em"          timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "atualizado_em"      timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "deletado_em"        timestamp with time zone          DEFAULT NULL
+    "id"            SERIAL PRIMARY KEY,
+    "carboidratos"  numeric(10, 2)           NOT NULL,
+    "proteinas"     numeric(10, 2)           NOT NULL,
+    "gorduras"      numeric(10, 2)           NOT NULL,
+    "fibras"        numeric(10, 2),
+    "sodio"         numeric(10, 2),
+    "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "deletado_em"   timestamp with time zone          DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS "adicionais"
+
 (
     "id"            SERIAL PRIMARY KEY,
     "nome"          varchar(255)             NOT NULL,
@@ -237,7 +238,7 @@ CREATE TABLE IF NOT EXISTS "pratos"
     "id"             SERIAL PRIMARY KEY,
     "id_macro"       integer                  NOT NULL,
     "id_restaurante" integer                  NOT NULL,
-    "id_adicional"   integer                  NOT NULL,
+    "id_adicional"   integer,
     "nome"           varchar(255)             NOT NULL,
     "descricao"      varchar(255)             NOT NULL,
     "url_imagem"     varchar(500)             NOT NULL,
@@ -522,7 +523,7 @@ CREATE TABLE IF NOT EXISTS "necessidades_clientes"
     "id"                           SERIAL PRIMARY KEY,
     "id_necessidades_nutricionais" integer                  NOT NULL,
     "id_cliente"                   integer                  NOT NULL,
-    "criado_em"                    timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "criado_em"                   timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em"                timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"                  timestamp with time zone          DEFAULT NULL,
     CONSTRAINT fk_necessidades_clientes FOREIGN KEY (id_necessidades_nutricionais)
@@ -552,17 +553,4 @@ CREATE TABLE IF NOT EXISTS "pedidos_pratos"
             REFERENCES pratos (id)
             ON DELETE CASCADE
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
 
