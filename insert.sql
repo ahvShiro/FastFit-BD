@@ -121,137 +121,147 @@ VALUES (1, 1, 'João', 'Silva', '12345678901', '1234567890', 1),
        (10, 10, 'Juliana', 'Barbosa', '01234567890', '0123456789', 10);
 
 INSERT INTO "restaurantes" ("cnpj", "razao_social", "nome_fantasia", "id_endereco", "pedido_minimo", "taxa_entrega")
-VALUES
-('00.000.001/0001-01', 'Marombita Marmitaria LTDA', 'Marombita', 11, 30.00, 5.00),
-('00.000.002/0001-02', 'VidaLeve Alimentos LTDA', 'VidaLeve', 12, 25.00, 7.00),
-('00.000.003/0001-03', 'NutriSabor Alimentos LTDA', 'NutriSabor', 13, 20.00, NULL),
-('00.000.004/0001-04', 'GreenPower Cozinha Saudável LTDA', 'GreenPower', 14, NULL, 10.00),
-('00.000.005/0001-05', 'Empório Vila Duverdii LTDA', 'Empório Vila Duverdii', 15, 25.00, NULL);
+VALUES ('00.000.001/0001-01', 'Marombita Marmitaria LTDA', 'Marombita', 11, 30.00, 5.00),
+       ('00.000.002/0001-02', 'VidaLeve Alimentos LTDA', 'VidaLeve', 12, 25.00, 7.00),
+       ('00.000.003/0001-03', 'NutriSabor Alimentos LTDA', 'NutriSabor', 13, 20.00, NULL),
+       ('00.000.004/0001-04', 'GreenPower Cozinha Saudável LTDA', 'GreenPower', 14, NULL, 10.00),
+       ('00.000.005/0001-05', 'Empório Vila Duverdii LTDA', 'Empório Vila Duverdii', 15, 25.00, NULL);
 
 INSERT INTO "macros" ("proteinas", "carboidratos", "gorduras")
-VALUES
-(35, 40, 5),
-(30, 45, 10),
-(32, 42, 8),
-(40, 35, 12),
-(35, 40, 5),
-(10, 25, 6),
-(18, 50, 8),
-(35, 38, 6),
-(32, 42, 10),
-(25, 30, 4),
-(20, 45, 7),
-(15, 50, 7),
-(20, 40, 8),
-(18, 45, 6),
-(15, 40, 10);
+VALUES (35, 40, 5),
+       (30, 45, 10),
+       (32, 42, 8),
+       (40, 35, 12),
+       (35, 40, 5),
+       (10, 25, 6),
+       (18, 50, 8),
+       (35, 38, 6),
+       (32, 42, 10),
+       (25, 30, 4),
+       (20, 45, 7),
+       (15, 50, 7),
+       (20, 40, 8),
+       (18, 45, 6),
+       (15, 40, 10);
 
 
 
 INSERT INTO "ingredientes" ("ingrediente", "kosher", "halal", "alergeno")
-VALUES
-('Arroz', TRUE, TRUE, NULL),
-('Frango', FALSE, TRUE, NULL),
-('Legumes', TRUE, TRUE, NULL),
-('Strogonoff', FALSE, FALSE, 'Leite'),
-('Batata', TRUE, TRUE, NULL),
-('Quinoa', TRUE, TRUE, NULL),
-('Salmão', TRUE, TRUE, NULL),
-('Batata Doce', TRUE, TRUE, NULL),
-('Espaguete de Abobrinha', TRUE, TRUE, NULL),
-('Molho de Tomate', TRUE, TRUE, NULL),
-('Tofu', TRUE, TRUE, 'Soja'),
-('Almôndegas de Grão-de-Bico', TRUE, TRUE, 'Glúten'),
-('Arroz Integral', TRUE, TRUE, NULL),
-('Tilápia', TRUE, TRUE, NULL),
-('Carne Moída', FALSE, FALSE, NULL),
-('Purê de Mandioquinha', TRUE, TRUE, 'Leite'),
-('Aveia', TRUE, TRUE, 'Glúten'),
-('Omelete de Claras', TRUE, TRUE, 'Ovos'),
-('Espinafre', TRUE, TRUE, NULL),
-('Hambúrguer de Lentilha', TRUE, TRUE, 'Glúten'),
-('Arroz 7 Grãos', TRUE, TRUE, 'Glúten'),
-('Curry', TRUE, TRUE, NULL),
-('Arroz Basmati', TRUE, TRUE, NULL),
-('Abóbora', TRUE, TRUE, NULL),
-('Feijoada Vegana', TRUE, TRUE, NULL),
-('Couve', TRUE, TRUE, NULL),
-('Quibe', FALSE, FALSE, 'Glúten'),
-('Homus', TRUE, TRUE, 'Gergelim'),
-('Molho Pesto', FALSE, TRUE, 'Nozes'),
-('Ervilhas', TRUE, TRUE, NULL),
-('Brócolis', TRUE, TRUE, NULL),
-('Purê de Abóbora', TRUE, TRUE, 'Leite'),
-('Almôndegas de Frango', FALSE, TRUE, 'Glúten'),
-('Espaguete Integral', TRUE, TRUE, 'Glúten');
+VALUES ('Arroz', TRUE, TRUE, NULL),
+       ('Frango', FALSE, TRUE, NULL),
+       ('Legumes', TRUE, TRUE, NULL),
+       ('Strogonoff', FALSE, FALSE, 'Leite'),
+       ('Batata', TRUE, TRUE, NULL),
+       ('Quinoa', TRUE, TRUE, NULL),
+       ('Salmão', TRUE, TRUE, NULL),
+       ('Batata Doce', TRUE, TRUE, NULL),
+       ('Espaguete de Abobrinha', TRUE, TRUE, NULL),
+       ('Molho de Tomate', TRUE, TRUE, NULL),
+       ('Tofu', TRUE, TRUE, 'Soja'),
+       ('Almôndegas de Grão-de-Bico', TRUE, TRUE, 'Glúten'),
+       ('Arroz Integral', TRUE, TRUE, NULL),
+       ('Tilápia', TRUE, TRUE, NULL),
+       ('Carne Moída', FALSE, FALSE, NULL),
+       ('Purê de Mandioquinha', TRUE, TRUE, 'Leite'),
+       ('Aveia', TRUE, TRUE, 'Glúten'),
+       ('Omelete de Claras', TRUE, TRUE, 'Ovos'),
+       ('Espinafre', TRUE, TRUE, NULL),
+       ('Hambúrguer de Lentilha', TRUE, TRUE, 'Glúten'),
+       ('Arroz 7 Grãos', TRUE, TRUE, 'Glúten'),
+       ('Curry', TRUE, TRUE, NULL),
+       ('Arroz Basmati', TRUE, TRUE, NULL),
+       ('Abóbora', TRUE, TRUE, NULL),
+       ('Feijoada Vegana', TRUE, TRUE, NULL),
+       ('Couve', TRUE, TRUE, NULL),
+       ('Quibe', FALSE, FALSE, 'Glúten'),
+       ('Homus', TRUE, TRUE, 'Gergelim'),
+       ('Molho Pesto', FALSE, TRUE, 'Nozes'),
+       ('Ervilhas', TRUE, TRUE, NULL),
+       ('Brócolis', TRUE, TRUE, NULL),
+       ('Purê de Abóbora', TRUE, TRUE, 'Leite'),
+       ('Almôndegas de Frango', FALSE, TRUE, 'Glúten'),
+       ('Espaguete Integral', TRUE, TRUE, 'Glúten');
 
 INSERT INTO "pratos" ("nome", "descricao", "preco", "id_restaurante", "id_macro", "id_adicional", "url_imagem")
-VALUES
-('Frango e Arroz', '150g Arroz, 150g Frango, 50g Legumes', 30.00, 1, 1,
- NULL, 'https://example.com/images/frango_arroz.jpg'),
-('Strogonoff de Carne e Arroz', '150g Arroz, 150g Strogonoff, 50g Legumes', 30.00, 1, 2, NULL, 'https://example.com/images/strogonoff_carne.jpg'),
-('Escondidinho de Frango', '150g Batata, 150g Frango, 50g Legumes', 30.00, 1, 3, NULL, 'https://example.com/images/escondidinho_frango.jpg'),
-('Salmão Grelhado com Quinoa', '150g Salmão, 150g Quinoa, 50g Legumes', 35.00, 2, 4, NULL, 'https://example.com/images/salmao_quinoa.jpg'),
-('Frango com Batata Doce', '150g Frango, 150g Batata Doce, 50g Legumes', 30.00, 2, 5, NULL, 'https://example.com/images/frango_batata_doce.jpg'),
-('Espaguete de Abobrinha ao Molho de Tomate', '150g Espaguete de Abobrinha, 150g Molho de Tomate, 50g Tofu', 28.00, 2, 6, NULL, 'https://example.com/images/espaguete_abobrinha.jpg'),
-('Almôndegas de Grão-de-Bico', '150g Almôndegas, 150g Arroz Integral, 50g Legumes', 27.00, 2, 7, NULL, 'https://example.com/images/almondegas_graodebico.jpg'),
-('Tilápia com Arroz Integral', '150g Tilápia, 150g Arroz Integral, 50g Brócolis', 32.00, 3, 8, NULL, 'https://example.com/images/tilapia_arroz_integral.jpg'),
-('Carne Moída com Purê de Mandioquinha', '150g Carne Moída, 150g Purê, 50g Legumes', 30.00, 3, 9, NULL, 'https://example.com/images/carne_pure.jpg'),
-('Omelete de Claras com Aveia', '150g Omelete, 150g Aveia, 50g Espinafre', 28.00, 3, 10, NULL, 'https://example.com/images/omelete_aveia.jpg'),
-('Hambúrguer de Lentilha com Arroz 7 Grãos', '150g Hambúrguer, 150g Arroz, 50g Legumes', 29.00, 3, 11, NULL, 'https://example.com/images/hamburguer_lentilha.jpg'),
-('Curry de Grão-de-Bico', '150g Curry, 150g Arroz Basmati, 50g Legumes', 28.00, 4, 12, NULL, 'https://example.com/images/curry_graodebico.jpg'),
-('Tofu Grelhado com Batata Doce', '150g Tofu, 150g Batata Doce, 50g Abóbora', 30.00, 4, 13, NULL, 'https://example.com/images/tofu_batata_doce.jpg'),
-('Feijoada Vegana com Couve', '150g Feijoada, 150g Arroz Integral, 50g Couve', 29.00, 4, 14, NULL, 'https://example.com/images/feijoada_vegana.jpg'),
-('Quibe de Abóbora com Homus', '150g Quibe, 150g Arroz Integral, 50g Homus', 27.00, 4, 15, NULL, 'https://example.com/images/quibe_abobora.jpg');
+VALUES ('Frango e Arroz', '150g Arroz, 150g Frango, 50g Legumes', 30.00, 1, 1,
+        NULL, 'https://example.com/images/frango_arroz.jpg'),
+       ('Strogonoff de Carne e Arroz', '150g Arroz, 150g Strogonoff, 50g Legumes', 30.00, 1, 2, NULL,
+        'https://example.com/images/strogonoff_carne.jpg'),
+       ('Escondidinho de Frango', '150g Batata, 150g Frango, 50g Legumes', 30.00, 1, 3, NULL,
+        'https://example.com/images/escondidinho_frango.jpg'),
+       ('Salmão Grelhado com Quinoa', '150g Salmão, 150g Quinoa, 50g Legumes', 35.00, 2, 4, NULL,
+        'https://example.com/images/salmao_quinoa.jpg'),
+       ('Frango com Batata Doce', '150g Frango, 150g Batata Doce, 50g Legumes', 30.00, 2, 5, NULL,
+        'https://example.com/images/frango_batata_doce.jpg'),
+       ('Espaguete de Abobrinha ao Molho de Tomate', '150g Espaguete de Abobrinha, 150g Molho de Tomate, 50g Tofu',
+        28.00, 2, 6, NULL, 'https://example.com/images/espaguete_abobrinha.jpg'),
+       ('Almôndegas de Grão-de-Bico', '150g Almôndegas, 150g Arroz Integral, 50g Legumes', 27.00, 2, 7, NULL,
+        'https://example.com/images/almondegas_graodebico.jpg'),
+       ('Tilápia com Arroz Integral', '150g Tilápia, 150g Arroz Integral, 50g Brócolis', 32.00, 3, 8, NULL,
+        'https://example.com/images/tilapia_arroz_integral.jpg'),
+       ('Carne Moída com Purê de Mandioquinha', '150g Carne Moída, 150g Purê, 50g Legumes', 30.00, 3, 9, NULL,
+        'https://example.com/images/carne_pure.jpg'),
+       ('Omelete de Claras com Aveia', '150g Omelete, 150g Aveia, 50g Espinafre', 28.00, 3, 10, NULL,
+        'https://example.com/images/omelete_aveia.jpg'),
+       ('Hambúrguer de Lentilha com Arroz 7 Grãos', '150g Hambúrguer, 150g Arroz, 50g Legumes', 29.00, 3, 11, NULL,
+        'https://example.com/images/hamburguer_lentilha.jpg'),
+       ('Curry de Grão-de-Bico', '150g Curry, 150g Arroz Basmati, 50g Legumes', 28.00, 4, 12, NULL,
+        'https://example.com/images/curry_graodebico.jpg'),
+       ('Tofu Grelhado com Batata Doce', '150g Tofu, 150g Batata Doce, 50g Abóbora', 30.00, 4, 13, NULL,
+        'https://example.com/images/tofu_batata_doce.jpg'),
+       ('Feijoada Vegana com Couve', '150g Feijoada, 150g Arroz Integral, 50g Couve', 29.00, 4, 14, NULL,
+        'https://example.com/images/feijoada_vegana.jpg'),
+       ('Quibe de Abóbora com Homus', '150g Quibe, 150g Arroz Integral, 50g Homus', 27.00, 4, 15, NULL,
+        'https://example.com/images/quibe_abobora.jpg');
 
 -- ingredientes_pratos TÁ DESRESPEITANDO NOT NULL
 -- [23502] ERROR: null value in column "quantidade" of relation "ingredientes_pratos" violates not-null constraint Detail: Failing row contains (2, 1, 1, null, null, 2024-12-05 18:22:35.452689+00, 2024-12-05 18:22:35.452689+00, null).
 INSERT INTO "ingredientes_pratos" ("id_prato", "id_ingrediente", "quantidade", "unidade_de_medida")
 VALUES
     -- Prato 1: Frango e Arroz
-    (1, 1, 150.00, 'gramas'),  -- Arroz
-    (1, 2, 150.00, 'gramas'),  -- Frango
-    (1, 3, 50.00, 'gramas'),   -- Legumes
+    (1, 1, 150.00, 'gramas'),   -- Arroz
+    (1, 2, 150.00, 'gramas'),   -- Frango
+    (1, 3, 50.00, 'gramas'),    -- Legumes
 
     -- Prato 2: Strogonoff de Carne e Arroz
-    (2, 1, 150.00, 'gramas'),  -- Arroz
-    (2, 4, 150.00, 'gramas'),  -- Strogonoff
-    (2, 3, 50.00, 'gramas'),   -- Legumes
+    (2, 1, 150.00, 'gramas'),   -- Arroz
+    (2, 4, 150.00, 'gramas'),   -- Strogonoff
+    (2, 3, 50.00, 'gramas'),    -- Legumes
 
     -- Prato 3: Escondidinho de Frango
-    (3, 5, 150.00, 'gramas'),  -- Batata
-    (3, 2, 150.00, 'gramas'),  -- Frango
-    (3, 3, 50.00, 'gramas'),   -- Legumes
+    (3, 5, 150.00, 'gramas'),   -- Batata
+    (3, 2, 150.00, 'gramas'),   -- Frango
+    (3, 3, 50.00, 'gramas'),    -- Legumes
 
     -- Prato 4: Salmão Grelhado com Quinoa
-    (4, 7, 150.00, 'gramas'),  -- Salmão
-    (4, 6, 150.00, 'gramas'),  -- Quinoa
-    (4, 3, 50.00, 'gramas'),   -- Legumes
+    (4, 7, 150.00, 'gramas'),   -- Salmão
+    (4, 6, 150.00, 'gramas'),   -- Quinoa
+    (4, 3, 50.00, 'gramas'),    -- Legumes
 
     -- Prato 5: Frango com Batata Doce
-    (5, 2, 150.00, 'gramas'),  -- Frango
-    (5, 8, 150.00, 'gramas'),  -- Batata Doce
-    (5, 3, 50.00, 'gramas'),   -- Legumes
+    (5, 2, 150.00, 'gramas'),   -- Frango
+    (5, 8, 150.00, 'gramas'),   -- Batata Doce
+    (5, 3, 50.00, 'gramas'),    -- Legumes
 
     -- Prato 6: Espaguete de Abobrinha ao Molho de Tomate
-    (6, 9, 150.00, 'gramas'),  -- Espaguete de Abobrinha
-    (6, 10, 150.00, 'gramas'), -- Molho de Tomate
-    (6, 11, 50.00, 'gramas'),  -- Tofu
+    (6, 9, 150.00, 'gramas'),   -- Espaguete de Abobrinha
+    (6, 10, 150.00, 'gramas'),  -- Molho de Tomate
+    (6, 11, 50.00, 'gramas'),   -- Tofu
 
     -- Prato 7: Almôndegas de Grão-de-Bico
-    (7, 12, 150.00, 'gramas'), -- Almôndegas de Grão-de-Bico
-    (7, 13, 150.00, 'gramas'), -- Arroz Integral
-    (7, 3, 50.00, 'gramas'),   -- Legumes
+    (7, 12, 150.00, 'gramas'),  -- Almôndegas de Grão-de-Bico
+    (7, 13, 150.00, 'gramas'),  -- Arroz Integral
+    (7, 3, 50.00, 'gramas'),    -- Legumes
 
     -- Prato 8: Tilápia com Arroz Integral
-    (8, 14, 150.00, 'gramas'), -- Tilápia
-    (8, 13, 150.00, 'gramas'), -- Arroz Integral
-    (8, 31, 50.00, 'gramas'),  -- Brócolis
+    (8, 14, 150.00, 'gramas'),  -- Tilápia
+    (8, 13, 150.00, 'gramas'),  -- Arroz Integral
+    (8, 31, 50.00, 'gramas'),   -- Brócolis
 
     -- Prato 9: Carne Moída com Purê de Mandioquinha
-    (9, 15, 150.00, 'gramas'), -- Carne Moída
-    (9, 16, 150.00, 'gramas'), -- Purê de Mandioquinha
-    (9, 3, 50.00, 'gramas'),   -- Legumes
+    (9, 15, 150.00, 'gramas'),  -- Carne Moída
+    (9, 16, 150.00, 'gramas'),  -- Purê de Mandioquinha
+    (9, 3, 50.00, 'gramas'),    -- Legumes
 
     -- Prato 10: Omelete de Claras com Aveia
     (10, 18, 150.00, 'gramas'), -- Omelete de Claras
@@ -281,39 +291,37 @@ VALUES
     -- Prato 15: Quibe de Abóbora com Homus
     (15, 27, 150.00, 'gramas'), -- Quibe
     (15, 13, 150.00, 'gramas'), -- Arroz Integral
-    (15, 28, 50.00, 'gramas');  -- Homus
+    (15, 28, 50.00, 'gramas'); -- Homus
 
 
 INSERT INTO "status_pedidos" ("status")
-VALUES 
-('Aguardando Confirmação'),
-('Em Preparação'),
-('Aguardando Entregador'),
-('Em Rota de Entrega'),
-('Entregue'),
-('Cancelado'),
-('Recusado'),
-('Finalizado'),
-('Em Atraso'),
-('Devolvido');
+VALUES ('Aguardando Confirmação'),
+       ('Em Preparação'),
+       ('Aguardando Entregador'),
+       ('Em Rota de Entrega'),
+       ('Entregue'),
+       ('Cancelado'),
+       ('Recusado'),
+       ('Finalizado'),
+       ('Em Atraso'),
+       ('Devolvido');
 
 INSERT INTO "pedidos" ("id_cliente", "id_restaurante", "id_entregador", "id_status_entrega")
-VALUES 
-(1, 1, 1, 5),
-(2, 2, 2, 5),
-(3, 3, 3, 5),
-(4, 4, 4, 5),
-(5, 5, 5, 5),
-(6, 1, 6, 4),
-(7, 2, 7, 4),
-(8, 3, 8, 3),
-(9, 4, 9, 2),
-(10, 5, 10, 1),
-(1, 2, 1, 5),
-(2, 3, 2, 5),
-(3, 4, 3, 5),
-(4, 5, 4, 5),
-(5, 1, 5, 5);
+VALUES (1, 1, 1, 5),
+       (2, 2, 2, 5),
+       (3, 3, 3, 5),
+       (4, 4, 4, 5),
+       (5, 5, 5, 5),
+       (6, 1, 6, 4),
+       (7, 2, 7, 4),
+       (8, 3, 8, 3),
+       (9, 4, 9, 2),
+       (10, 5, 10, 1),
+       (1, 2, 1, 5),
+       (2, 3, 2, 5),
+       (3, 4, 3, 5),
+       (4, 5, 4, 5),
+       (5, 1, 5, 5);
 
 INSERT INTO "metodos_pagamentos" ("metodo")
 VALUES ('Crédito'),
@@ -331,170 +339,159 @@ VALUES ('Autorizado'),
        ('Negado');
 
 INSERT INTO "pagamentos" ("data_pagamento", "valor_pago", "metodo_pagamento", "status_pagamento")
-VALUES 
-(CURRENT_TIMESTAMP, 30.00, 1, 1),
-(CURRENT_TIMESTAMP, 35.00, 2, 1),
-(CURRENT_TIMESTAMP, 28.00, 3, 1),
-(CURRENT_TIMESTAMP, 32.00, 4, 1),
-(CURRENT_TIMESTAMP, 30.00, 5, 1),
-(CURRENT_TIMESTAMP, 28.00, 1, 1),
-(CURRENT_TIMESTAMP, 29.00, 2, 1),
-(CURRENT_TIMESTAMP, 28.00, 3, 2),
-(CURRENT_TIMESTAMP, 30.00, 4, 2),
-(CURRENT_TIMESTAMP, 29.00, 5, 3),
-(CURRENT_TIMESTAMP, 27.00, 1, 1),
-(CURRENT_TIMESTAMP, 30.00, 2, 1),
-(CURRENT_TIMESTAMP, 32.00, 3, 1),
-(CURRENT_TIMESTAMP, 30.00, 4, 1),
-(CURRENT_TIMESTAMP, 28.00, 5, 1);
+VALUES (CURRENT_TIMESTAMP, 30.00, 1, 1),
+       (CURRENT_TIMESTAMP, 35.00, 2, 1),
+       (CURRENT_TIMESTAMP, 28.00, 3, 1),
+       (CURRENT_TIMESTAMP, 32.00, 4, 1),
+       (CURRENT_TIMESTAMP, 30.00, 5, 1),
+       (CURRENT_TIMESTAMP, 28.00, 1, 1),
+       (CURRENT_TIMESTAMP, 29.00, 2, 1),
+       (CURRENT_TIMESTAMP, 28.00, 3, 2),
+       (CURRENT_TIMESTAMP, 30.00, 4, 2),
+       (CURRENT_TIMESTAMP, 29.00, 5, 3),
+       (CURRENT_TIMESTAMP, 27.00, 1, 1),
+       (CURRENT_TIMESTAMP, 30.00, 2, 1),
+       (CURRENT_TIMESTAMP, 32.00, 3, 1),
+       (CURRENT_TIMESTAMP, 30.00, 4, 1),
+       (CURRENT_TIMESTAMP, 28.00, 5, 1);
 
 
 -- INSERIR EM TABELA pagamentos_pedidos
 INSERT INTO "pagamentos_pedidos" ("id_pagamento", "id_pedido")
-VALUES 
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10),
-(11, 11),
-(12, 12),
-(13, 13),
-(14, 14),
-(15, 15);
+VALUES (1, 1),
+       (2, 2),
+       (3, 3),
+       (4, 4),
+       (5, 5),
+       (6, 6),
+       (7, 7),
+       (8, 8),
+       (9, 9),
+       (10, 10),
+       (11, 11),
+       (12, 12),
+       (13, 13),
+       (14, 14),
+       (15, 15);
 
 -- INSERIR EM TABELA estornos
 INSERT INTO "estornos" ("id_pagamento", "valor", "motivo")
-VALUES 
-(7, 30.00, 'Pedido incorreto'),
-(8, 35.00, 'Pedido incirreto');
+VALUES (7, 30.00, 'Pedido incorreto'),
+       (8, 35.00, 'Pedido incirreto');
 
 -- INSERIR EM TABELA avaliacoes_restaurantes
 INSERT INTO "avaliacoes_restaurantes" ("id_cliente", "id_restaurante", "nota", "comentario")
-VALUES 
-(1, 1, 5, 'Excelente comida e serviço!'),
-(2, 2, 4, 'Muito bom, mas poderia ser mais rápido.'),
-(3, 3, 3, 'Comida boa, mas entrega atrasada.'),
-(4, 4, 5, 'Adorei! Vou pedir novamente.'),
-(5, 5, 4, 'Bom, mas poderia ter mais opções no cardápio.');
+VALUES (1, 1, 5, 'Excelente comida e serviço!'),
+       (2, 2, 4, 'Muito bom, mas poderia ser mais rápido.'),
+       (3, 3, 3, 'Comida boa, mas entrega atrasada.'),
+       (4, 4, 5, 'Adorei! Vou pedir novamente.'),
+       (5, 5, 4, 'Bom, mas poderia ter mais opções no cardápio.');
 
 
 -- INSERIR EM TABELA avaliacoes_pratos
 -- ERROR: insert or update on table "avaliacoes_pratos" violates foreign key constraint "fk_avaliacoes_pratos1" Detail: Key (id_prato)=(1) is not present in table "pratos"
 INSERT INTO "avaliacoes_pratos" ("id_cliente", "id_prato", "nota", "comentario")
-VALUES 
-( 1, 1, 5, 'Delicioso!'),
-( 2, 3, 4, 'Muito bom, mas um pouco salgado.'),
-( 3, 5, 3, 'Gostei, mas poderia ser mais temperado.'),
-( 4, 7, 5, 'Perfeito!'),
-( 5, 10, 4, 'Bom, mas a porção poderia ser maior.');
+VALUES (1, 1, 5, 'Delicioso!'),
+       (2, 3, 4, 'Muito bom, mas um pouco salgado.'),
+       (3, 5, 3, 'Gostei, mas poderia ser mais temperado.'),
+       (4, 7, 5, 'Perfeito!'),
+       (5, 10, 4, 'Bom, mas a porção poderia ser maior.');
 
 
 -- INSERIR EM TABELA avaliacoes_entregadores
 INSERT INTO "avaliacoes_entregadores" ("id_cliente", "id_entregador", "nota", "comentario")
-VALUES 
-(1, 1, 5, 'Entregador muito educado e pontual.'),
-(2, 2, 4, 'Bom serviço, mas poderia ser mais rápido.'),
-(3, 3, 3, 'Entrega atrasada, mas entregador educado.'),
-(4, 4, 5, 'Excelente serviço!'),
-(5, 5, 4, 'Bom, mas poderia ser mais rápido.');
+VALUES (1, 1, 5, 'Entregador muito educado e pontual.'),
+       (2, 2, 4, 'Bom serviço, mas poderia ser mais rápido.'),
+       (3, 3, 3, 'Entrega atrasada, mas entregador educado.'),
+       (4, 4, 5, 'Excelente serviço!'),
+       (5, 5, 4, 'Bom, mas poderia ser mais rápido.');
 
 
 
 INSERT INTO "restricoes_alimentares" ("id_cliente", "id_ingrediente")
-VALUES 
-(1, 4),  -- Cliente 1 não pode comer strogonoff
-(2, 11), -- Cliente 2 não pode comer tofu
-(3, 15), -- Cliente 3 não pode comer carne moída
-(4, 7),  -- Cliente 4 não pode comer salmão
-(5, 8),  -- Cliente 5 não pode comer batata doce
-(6, 12), -- Cliente 6 não pode comer grão-de-bico
-(7, 14), -- Cliente 7 não pode comer tilápia
-(8, 20), -- Cliente 8 não pode comer lentilha
-(9, 25), -- Cliente 9 não pode comer feijoada
-(10, 28); -- Cliente 10 não pode comer homus
-
+VALUES (1, 4),  -- Cliente 1 não pode comer strogonoff
+       (2, 11), -- Cliente 2 não pode comer tofu
+       (3, 15), -- Cliente 3 não pode comer carne moída
+       (4, 7),  -- Cliente 4 não pode comer salmão
+       (5, 8),  -- Cliente 5 não pode comer batata doce
+       (6, 12), -- Cliente 6 não pode comer grão-de-bico
+       (7, 14), -- Cliente 7 não pode comer tilápia
+       (8, 20), -- Cliente 8 não pode comer lentilha
+       (9, 25), -- Cliente 9 não pode comer feijoada
+       (10, 28);
+-- Cliente 10 não pode comer homus
 
 
 -- INSERIR EM TABELA cupons
 INSERT INTO "cupons" ("codigo", "descricao", "desconto", "data_inicio", "data_fim", "id_restaurante")
-VALUES 
-('PROMO10', 'Desconto de 10%', 10.00, '2023-01-01', '2023-12-31', 1),
-('PROMO20', 'Desconto de 20%', 20.00, '2023-01-01', '2023-12-31', 2),
-('PROMO30', 'Desconto de 30%', 30.00, '2023-01-01', '2023-12-31', 3),
-('PROMO40', 'Desconto de 40%', 40.00, '2023-01-01', '2023-12-31', 4),
-('PROMO50', 'Desconto de 50%', 50.00, '2023-01-01', '2023-12-31', 5);
+VALUES ('PROMO10', 'Desconto de 10%', 10.00, '2023-01-01', '2023-12-31', 1),
+       ('PROMO20', 'Desconto de 20%', 20.00, '2023-01-01', '2023-12-31', 2),
+       ('PROMO30', 'Desconto de 30%', 30.00, '2023-01-01', '2023-12-31', 3),
+       ('PROMO40', 'Desconto de 40%', 40.00, '2023-01-01', '2023-12-31', 4),
+       ('PROMO50', 'Desconto de 50%', 50.00, '2023-01-01', '2023-12-31', 5);
 
 -- INSERIR EM TABELA preferencias
 -- ERROR: insert or update on table "preferencias" violates foreign key constraint "fk_preferencias1" Detail: Key (id_prato)=(2) is not present in table "pratos".
 INSERT INTO "preferencias" ("id_cliente", "id_prato", "filtro_usado")
-VALUES 
-(1, NULL, 'Fit'),
-(2, NULL, 'Vegano'),
-(2, NULL, 'Halal'),
-(4, 2, 'Janta Sem Glúten'),
-(5, 5, 'Sem Lactose');
+VALUES (1, NULL, 'Fit'),
+       (2, NULL, 'Vegano'),
+       (2, NULL, 'Halal'),
+       (4, 2, 'Janta Sem Glúten'),
+       (5, 5, 'Sem Lactose');
 
 
 -- PARA REFAZER MAS SEI N
-INSERT INTO "necessidades_nutricionais" 
+INSERT INTO "necessidades_nutricionais"
 ("tipo_refeicao", "calorias", "proteinas", "carboidratos", "fibras", "gorduras_trans", "sodio", "gorduras_saturadas")
-VALUES 
-('Café da Manhã', 400, 20, 50, 5, 0, 200, 2),
-('Almoço', 700, 35, 80, 8, 0, 400, 4),
-('Lanche', 300, 15, 40, 4, 0, 150, 2),
-('Janta', 600, 30, 70, 7, 0, 350, 3),
-('Pré-treino', 250, 20, 30, 3, 0, 100, 1),
-('Pós-treino', 350, 25, 45, 4, 0, 150, 2),
-('Ceia', 200, 10, 25, 3, 0, 100, 1),
-('Colação', 150, 8, 20, 2, 0, 80, 1),
-('Pré-competição', 450, 25, 60, 5, 0, 200, 2),
-('Recuperação', 500, 30, 65, 6, 0, 250, 3);
+VALUES ('Café da Manhã', 400, 20, 50, 5, 0, 200, 2),
+       ('Almoço', 700, 35, 80, 8, 0, 400, 4),
+       ('Lanche', 300, 15, 40, 4, 0, 150, 2),
+       ('Janta', 600, 30, 70, 7, 0, 350, 3),
+       ('Pré-treino', 250, 20, 30, 3, 0, 100, 1),
+       ('Pós-treino', 350, 25, 45, 4, 0, 150, 2),
+       ('Ceia', 200, 10, 25, 3, 0, 100, 1),
+       ('Colação', 150, 8, 20, 2, 0, 80, 1),
+       ('Pré-competição', 450, 25, 60, 5, 0, 200, 2),
+       ('Recuperação', 500, 30, 65, 6, 0, 250, 3);
 
 -- INSERIR EM TABELA necessidades_clientes
 -- ESSE TBM
 INSERT INTO "necessidades_clientes" ("id_necessidades_nutricionais", "id_cliente")
-VALUES 
-(1, 1),  -- Lucas: Café da Manhã
-(2, 2),  -- Ana: Almoço
-(3, 3),  -- Carlos: Lanche
-(4, 4),  -- Juliana: Janta
-(5, 5),  -- Alex: Pré-treino
-(6, 6),  -- Fernanda: Pós-treino
-(7, 7),  -- Renato: Ceia
-(8, 8),  -- Patricia: Colação
-(9, 9),  -- José: Pré-competição
-(10, 10); -- Kai: Recuperação
+VALUES (1, 1), -- Lucas: Café da Manhã
+       (2, 2), -- Ana: Almoço
+       (3, 3), -- Carlos: Lanche
+       (4, 4), -- Juliana: Janta
+       (5, 5), -- Alex: Pré-treino
+       (6, 6), -- Fernanda: Pós-treino
+       (7, 7), -- Renato: Ceia
+       (8, 8), -- Patricia: Colação
+       (9, 9), -- José: Pré-competição
+       (10, 10);
+-- Kai: Recuperação
 
 -- INSERIR EM TABELA pedidos_pratos
 -- [23503] ERROR: insert or update on table "pedidos_pratos" violates foreign key constraint "fk_pedidos_pratos1" Detail: Key (id_prato)=(1) is not present in table "pratos".
 INSERT INTO "pedidos_pratos" ("id_pedido", "id_prato", "quantidade")
-VALUES
-(1, 1, 1),  -- Pedido 1: Frango e Arroz
-(2, 2, 1),  -- Pedido 2: Strogonoff de Carne e Arroz
-(2, 2, 3), -- Pedido 2: Frango com Batata Doce
-(3, 3, 2),  -- Pedido 3: Escondidinho de Frango
-(4, 4, 1),  -- Pedido 4: Salmão Grelhado com Quinoa
-(4, 4, 1), -- Pedido 4: Tilápia com Arroz Integral
-(5, 5, 1),  -- Pedido 5: Frango com Batata Doce
-(6, 6, 1),  -- Pedido 6: Espaguete de Abobrinha ao Molho de Tomate
-(6, 6, 1), -- Pedido 6: Almôndegas de Grão de Bico
-(7, 7, 2),  -- Pedido 7: Almôndegas de Grão-de-Bico
-(8, 8, 1),  -- Pedido 8: Tilápia com Arroz Integral
-(9, 9, 3),  -- Pedido 9: Carne Moída com Purê de Mandioquinha
-(10, 10, 2), -- Pedido 10: Omelete de Claras com Aveia
-(11, 11, 1), -- Pedido 11: Hambúrguer de Lentilha com Arroz 7 Grãos
-(12, 12, 1), -- Pedido 12: Curry de Grão-de-Bico
-(13, 13, 1), -- Pedido 13: Tofu Grelhado com Batata Doce
-(13, 13, 1), -- Pedido 13: Strogonoff de Frango com Arroz Integral
-(14, 14, 1), -- Pedido 14: Feijoada Vegana com Couve
-(15, 15, 2), -- Pedido 15: Quibe de Abóbora com Homus
-(15, 15, 1); -- Pedido 15: Almôndegas de Grão de Bico
+VALUES (1, 1, 1),   -- Pedido 1: Frango e Arroz
+       (2, 2, 1),   -- Pedido 2: Strogonoff de Carne e Arroz
+       (2, 2, 3),   -- Pedido 2: Frango com Batata Doce
+       (3, 3, 2),   -- Pedido 3: Escondidinho de Frango
+       (4, 4, 1),   -- Pedido 4: Salmão Grelhado com Quinoa
+       (4, 4, 1),   -- Pedido 4: Tilápia com Arroz Integral
+       (5, 5, 1),   -- Pedido 5: Frango com Batata Doce
+       (6, 6, 1),   -- Pedido 6: Espaguete de Abobrinha ao Molho de Tomate
+       (6, 6, 1),   -- Pedido 6: Almôndegas de Grão de Bico
+       (7, 7, 2),   -- Pedido 7: Almôndegas de Grão-de-Bico
+       (8, 8, 1),   -- Pedido 8: Tilápia com Arroz Integral
+       (9, 9, 3),   -- Pedido 9: Carne Moída com Purê de Mandioquinha
+       (10, 10, 2), -- Pedido 10: Omelete de Claras com Aveia
+       (11, 11, 1), -- Pedido 11: Hambúrguer de Lentilha com Arroz 7 Grãos
+       (12, 12, 1), -- Pedido 12: Curry de Grão-de-Bico
+       (13, 13, 1), -- Pedido 13: Tofu Grelhado com Batata Doce
+       (13, 13, 1), -- Pedido 13: Strogonoff de Frango com Arroz Integral
+       (14, 14, 1), -- Pedido 14: Feijoada Vegana com Couve
+       (15, 15, 2), -- Pedido 15: Quibe de Abóbora com Homus
+       (15, 15, 1); -- Pedido 15: Almôndegas de Grão de Bico
 
 
 

@@ -69,12 +69,12 @@ CREATE TABLE IF NOT EXISTS "dados_corporais"
     "sexo"                   sex,
     "altura"                 numeric(10, 2)           NOT NULL,
     "peso"                   numeric(5, 2)            NOT NULL,
-    "porcentagem_gordura"    numeric(10, 2)           ,
+    "porcentagem_gordura"    numeric(10, 2),
     "nivel_atividade"        integer                  NOT NULL,
     "circunferencia_pescoco" numeric(10, 2),
-    "circunferencia_peito"   numeric(10, 2)           ,
-    "circunferencia_quadril" numeric(10, 2)           ,
-    "circunferencia_coxa"    numeric(10, 2)           ,
+    "circunferencia_peito"   numeric(10, 2),
+    "circunferencia_quadril" numeric(10, 2),
+    "circunferencia_coxa"    numeric(10, 2),
     "criado_em"              timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em"          timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"            timestamp with time zone          DEFAULT NULL,
@@ -398,6 +398,7 @@ CREATE TABLE IF NOT EXISTS "avaliacoes_restaurantes"
             REFERENCES restaurantes (id)
             ON DELETE CASCADE
 );
+
 CREATE TABLE IF NOT EXISTS "avaliacoes_pratos"
 (
     "id"            SERIAL PRIMARY KEY,
@@ -417,6 +418,7 @@ CREATE TABLE IF NOT EXISTS "avaliacoes_pratos"
             REFERENCES pratos (id)
             ON DELETE CASCADE
 );
+
 CREATE TABLE IF NOT EXISTS "avaliacoes_entregadores"
 (
     "id"            SERIAL PRIMARY KEY,
@@ -513,7 +515,7 @@ CREATE TABLE IF NOT EXISTS "necessidades_clientes"
     "id"                           SERIAL PRIMARY KEY,
     "id_necessidades_nutricionais" integer                  NOT NULL,
     "id_cliente"                   integer                  NOT NULL,
-    "criado_em"                   timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "criado_em"                    timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em"                timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"                  timestamp with time zone          DEFAULT NULL,
     CONSTRAINT fk_necessidades_clientes FOREIGN KEY (id_necessidades_nutricionais)
@@ -543,4 +545,3 @@ CREATE TABLE IF NOT EXISTS "pedidos_pratos"
             REFERENCES pratos (id)
             ON DELETE CASCADE
 );
-

@@ -15,7 +15,7 @@ SELECT telefones.id AS id_telefone,
        telefones.atualizado_em,
        telefones.deletado_em
 FROM telefones
-JOIN tipos_telefone ON telefones.id_tipo_telefone = tipos_telefone.id;
+         JOIN tipos_telefone ON telefones.id_tipo_telefone = tipos_telefone.id;
 
 -- Relatório de Cadastro de Endereços
 SELECT id, estado, cidade, bairro, rua, numero, cep
@@ -229,34 +229,34 @@ FROM pedidos
 
 -- Relatório de Avaliações de Restaurantes com Clientes e Restaurantes
 SELECT avaliacoes_restaurantes.id AS id_avaliacao,
-       clientes.nome AS nome_cliente,
+       clientes.nome              AS nome_cliente,
        restaurantes.nome_fantasia AS nome_restaurante,
        avaliacoes_restaurantes.nota,
        avaliacoes_restaurantes.comentario,
-       avaliacoes_restaurantes.data_avaliacao
+       avaliacoes_restaurantes.atualizado_em
 FROM avaliacoes_restaurantes
-JOIN clientes ON avaliacoes_restaurantes.id_cliente = clientes.id
-JOIN restaurantes ON avaliacoes_restaurantes.id_restaurante = restaurantes.id;
+         JOIN clientes ON avaliacoes_restaurantes.id_cliente = clientes.id
+         JOIN restaurantes ON avaliacoes_restaurantes.id_restaurante = restaurantes.id;
 
 -- Relatório de Avaliações de Pratos com Clientes e Pratos
 SELECT avaliacoes_pratos.id AS id_avaliacao,
-       clientes.nome AS nome_cliente,
-       pratos.nome AS nome_prato,
+       clientes.nome        AS nome_cliente,
+       pratos.nome          AS nome_prato,
        avaliacoes_pratos.nota,
        avaliacoes_pratos.comentario,
-       avaliacoes_pratos.data_avaliacao
+       avaliacoes_pratos.atualizado_em
 FROM avaliacoes_pratos
-JOIN clientes ON avaliacoes_pratos.id_cliente = clientes.id
-JOIN pratos ON avaliacoes_pratos.id_prato = pratos.id;
+         JOIN clientes ON avaliacoes_pratos.id_cliente = clientes.id
+         JOIN pratos ON avaliacoes_pratos.id_prato = pratos.id;
 
 -- Relatório de Avaliações de Entregadores com Clientes e Entregadores
 SELECT avaliacoes_entregadores.id AS id_avaliacao,
-       clientes.nome AS nome_cliente,
-       entregadores.nome AS nome_entregador,
-       entregadores.sobrenome AS sobrenome_entregador,
+       clientes.nome              AS nome_cliente,
+       entregadores.nome          AS nome_entregador,
+       entregadores.sobrenome     AS sobrenome_entregador,
        avaliacoes_entregadores.nota,
        avaliacoes_entregadores.comentario,
-       avaliacoes_entregadores.data_avaliacao
+       avaliacoes_entregadores.atualizado_em
 FROM avaliacoes_entregadores
-JOIN clientes ON avaliacoes_entregadores.id_cliente = clientes.id
-JOIN entregadores ON avaliacoes_entregadores.id_entregador = entregadores.id;
+         JOIN clientes ON avaliacoes_entregadores.id_cliente = clientes.id
+         JOIN entregadores ON avaliacoes_entregadores.id_entregador = entregadores.id;
