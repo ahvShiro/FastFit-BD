@@ -69,12 +69,12 @@ CREATE TABLE IF NOT EXISTS "dados_corporais"
     "sexo"                   sex,
     "altura"                 numeric(10, 2)           NOT NULL,
     "peso"                   numeric(5, 2)            NOT NULL,
-    "porcentagem_gordura"    numeric(10, 2)           NOT NULL,
+    "porcentagem_gordura"    numeric(10, 2)           ,
     "nivel_atividade"        integer                  NOT NULL,
-    "circunferencia_pescoco" numeric(10, 2)           NOT NULL,
-    "circunferencia_peito"   numeric(10, 2)           NOT NULL,
-    "circunferencia_quadril" numeric(10, 2)           NOT NULL,
-    "circunferencia_coxa"    numeric(10, 2)           NOT NULL,
+    "circunferencia_pescoco" numeric(10, 2),
+    "circunferencia_peito"   numeric(10, 2)           ,
+    "circunferencia_quadril" numeric(10, 2)           ,
+    "circunferencia_coxa"    numeric(10, 2)           ,
     "criado_em"              timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em"          timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"            timestamp with time zone          DEFAULT NULL,
@@ -206,16 +206,6 @@ CREATE TABLE IF NOT EXISTS "adicionais"
     "nome"          varchar(255)             NOT NULL,
     "quantidade"    integer                  NOT NULL,
     "limite"        integer                  NOT NULL,
-    "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "deletado_em"   timestamp with time zone          DEFAULT NULL
-);
-
-CREATE TABLE IF NOT EXISTS "categorias" -- Ex.: Congelado, Quente, Almoço, Janta, Lanche, Doce, Salgado etc.
-(
-    "id"            SERIAL PRIMARY KEY,
-    "nome"          varchar(255)             NOT NULL,
-    "descricao"     varchar(255)             NOT NULL,
     "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletado_em"   timestamp with time zone          DEFAULT NULL
