@@ -27,8 +27,6 @@ Para a criação do DER para o banco de dados da FastFit, foi optado por utiliza
 - **niveis_atividade**: Armazena os níveis de atividade física dos clientes.
 - **dados_corporais**: Armazena os dados corporais dos clientes.
 - **clientes**: Armazena os dados dos clientes.
-- **veiculos**: Armazena os dados dos veículos dos entregadores.
-- **cnhs**: Armazena os dados das CNHs dos entregadores.
 - **entregadores**: Armazena os dados dos entregadores.
 - **restaurantes**: Armazena os dados dos restaurantes.
 - **macros**: Armazena os dados de macronutrientes dos pratos.
