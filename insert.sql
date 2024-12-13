@@ -84,48 +84,13 @@ VALUES (1, 1, 1, 'Lucas', 'Silva', 'lucas.silva@email.com', '***sei que***'),
        (9, 9, 9, 'José', 'Oliveira', 'jose.oliveira@email.com', '***e nem**'),
        (10, 10, 10, 'Kai', 'Rodrigues', 'kai.rodrigues@email.com', '***criptografar elas**');
 
-INSERT INTO "veiculos" ("tipo", "placa", "modelo", "marca")
-VALUES ('Moto', 'ABC-1234', 'CG 160', 'Honda'),
-       ('Moto', 'XYZ-5678', 'XRE 300', 'Honda'),
-       ('Moto', 'LMN-4321', 'Pop 110i', 'Honda'),
-       ('Bicicleta', 'NA', 'Mountain Bike', 'Caloi'),
-       ('Moto', 'DEF-8765', 'Biz 125', 'Honda'),
-       ('Moto', 'EEE-9876', 'NXR 160', 'Honda'),
-       ('Carro', 'FFF-6543', 'Civic', 'Honda'),
-       ('Carro', 'GGG-5432', 'Kwid', 'Renault'),
-       ('Moto', 'HHH-2121', 'Tornado 250', 'Honda'),
-       ('Moto', 'III-4321', 'Ninja 500', 'Kawasaki');
 
-INSERT INTO "cnhs" ("registro", "data_emissao", "data_validade", "categoria", "provisoria_ou_definitiva")
-VALUES ('12345678901', '2022-05-10', '2027-05-10', 'A', 'D'),
-       ('23456789012', '2021-11-20', '2026-11-20', 'AB', 'D'),
-       ('34567890123', '2020-06-15', '2025-06-15', 'A', 'D'),
-       ('45678901234', '2019-09-30', '2024-09-30', 'A', 'P'),
-       ('56789012345', '2023-02-01', '2028-02-01', 'A', 'D'),
-       ('67890123456', '2021-08-25', '2026-08-25', 'A', 'D'),
-       ('78901234567', '2020-04-10', '2025-04-10', 'AB', 'P'),
-       ('89012345678', '2018-07-13', '2023-07-13', 'AB', 'D'),
-       ('90123456789', '2023-03-01', '2028-03-01', 'A', 'D'),
-       ('01234567890', '2022-12-05', '2027-12-05', 'AC', 'D');
-
-INSERT INTO "entregadores" ("id_telefone", "id_veiculo", "nome", "sobrenome", "cpf", "rg", "id_cnh")
-VALUES (1, 1, 'João', 'Silva', '12345678901', '1234567890', 1),
-       (2, 2, 'Maria', 'Oliveira', '23456789012', '2345678901', 2),
-       (3, 3, 'Carlos', 'Pereira', '34567890123', '3456789012', 3),
-       (4, 4, 'Ana', 'Santos', '45678901234', '4567890123', 4),
-       (5, 5, 'Lucas', 'Costa', '56789012345', '5678901234', 5),
-       (6, 6, 'Beatriz', 'Almeida', '67890123456', '6789012345', 6),
-       (7, 7, 'Felipe', 'Martins', '78901234567', '7890123456', 7),
-       (8, 8, 'Fernanda', 'Souza', '89012345678', '8901234567', 8),
-       (9, 9, 'Eduardo', 'Lima', '90123456789', '9012345678', 9),
-       (10, 10, 'Juliana', 'Barbosa', '01234567890', '0123456789', 10);
-
-INSERT INTO "restaurantes" ("cnpj", "razao_social", "nome_fantasia", "id_endereco", "pedido_minimo", "taxa_entrega")
-VALUES ('00.000.001/0001-01', 'Marombita Marmitaria LTDA', 'Marombita', 11, 30.00, 5.00),
-       ('00.000.002/0001-02', 'VidaLeve Alimentos LTDA', 'VidaLeve', 12, 25.00, 7.00),
-       ('00.000.003/0001-03', 'NutriSabor Alimentos LTDA', 'NutriSabor', 13, 20.00, NULL),
-       ('00.000.004/0001-04', 'GreenPower Cozinha Saudável LTDA', 'GreenPower', 14, NULL, 10.00),
-       ('00.000.005/0001-05', 'Empório Vila Duverdii LTDA', 'Empório Vila Duverdii', 15, 25.00, NULL);
+INSERT INTO "restaurantes" ("cnpj", "razao_social", "nome_fantasia", "id_endereco", "pedido_minimo", "taxa_entrega", "id_telefone")
+VALUES ('00.000.001/0001-01', 'Marombita Marmitaria LTDA', 'Marombita', 11, 30.00, 5.00, 11),
+       ('00.000.002/0001-02', 'VidaLeve Alimentos LTDA', 'VidaLeve', 12, 25.00, 7.00, 12),
+       ('00.000.003/0001-03', 'NutriSabor Alimentos LTDA', 'NutriSabor', 13, 20.00, NULL, 13),
+       ('00.000.004/0001-04', 'GreenPower Cozinha Saudável LTDA', 'GreenPower', 14, NULL, 10.00, 14),
+       ('00.000.005/0001-05', 'Empório Vila Duverdii LTDA', 'Empório Vila Duverdii', 15, 25.00, NULL, 15);
 
 INSERT INTO "macros" ("proteinas", "carboidratos", "gorduras")
 VALUES (35, 40, 5),
@@ -294,6 +259,14 @@ VALUES
     (15, 28, 50.00, 'gramas'); -- Homus
 
 
+INSERT INTO "adicionais" ("nome", "quantidade", "limite") 
+VALUES 
+    ('Molho Extra', 1, 3),
+    ('Proteína Extra', 1, 2),
+    ('Legumes Extra', 1, 3),
+    ('Arroz Extra', 1, 2),
+    ('Temperos Especiais', 1, 5);
+
 INSERT INTO "status_pedidos" ("status")
 VALUES ('Aguardando Confirmação'),
        ('Em Preparação'),
@@ -306,22 +279,22 @@ VALUES ('Aguardando Confirmação'),
        ('Em Atraso'),
        ('Devolvido');
 
-INSERT INTO "pedidos" ("id_cliente", "id_restaurante", "id_entregador", "id_status_entrega")
-VALUES (1, 1, 1, 5),
-       (2, 2, 2, 5),
-       (3, 3, 3, 5),
-       (4, 4, 4, 5),
-       (5, 5, 5, 5),
-       (6, 1, 6, 4),
-       (7, 2, 7, 4),
-       (8, 3, 8, 3),
-       (9, 4, 9, 2),
-       (10, 5, 10, 1),
-       (1, 2, 1, 5),
-       (2, 3, 2, 5),
-       (3, 4, 3, 5),
-       (4, 5, 4, 5),
-       (5, 1, 5, 5);
+INSERT INTO "pedidos" ("id_cliente", "id_restaurante", "id_status_entrega")
+VALUES (1, 1, 5),
+       (2, 2, 5),
+       (3, 3, 5),
+       (4, 4, 5),
+       (5, 5, 5),
+       (6, 1, 4),
+       (7, 2, 4),
+       (8, 3, 3),
+       (9, 4, 2),
+       (10, 5, 1),
+       (1, 2, 5),
+       (2, 3, 5),
+       (3, 4, 5),
+       (4, 5, 5),
+       (5, 1, 5);
 
 INSERT INTO "metodos_pagamentos" ("metodo")
 VALUES ('Crédito'),
@@ -397,14 +370,6 @@ VALUES (1, 1, 5, 'Delicioso!'),
        (4, 7, 5, 'Perfeito!'),
        (5, 10, 4, 'Bom, mas a porção poderia ser maior.');
 
-
--- INSERIR EM TABELA avaliacoes_entregadores
-INSERT INTO "avaliacoes_entregadores" ("id_cliente", "id_entregador", "nota", "comentario")
-VALUES (1, 1, 5, 'Entregador muito educado e pontual.'),
-       (2, 2, 4, 'Bom serviço, mas poderia ser mais rápido.'),
-       (3, 3, 3, 'Entrega atrasada, mas entregador educado.'),
-       (4, 4, 5, 'Excelente serviço!'),
-       (5, 5, 4, 'Bom, mas poderia ser mais rápido.');
 
 
 

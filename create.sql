@@ -116,61 +116,10 @@ CREATE TABLE IF NOT EXISTS "clientes"
             ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS "veiculos"
-(
-    "id"            SERIAL PRIMARY KEY,
-    "tipo"          varchar(255)             NOT NULL,
-    "placa"         varchar(8)               NOT NULL,
-    "modelo"        varchar(255)             NOT NULL,
-    "marca"         varchar(255)             NOT NULL,
-    "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "deletado_em"   timestamp with time zone          DEFAULT NULL
-);
-
-CREATE TABLE IF NOT EXISTS "cnhs"
-(
-    "id"                       SERIAL PRIMARY KEY,
-    "registro"                 varchar(255)             NOT NULL,
-    "data_emissao"             date                     NOT NULL,
-    "data_validade"            date                     NOT NULL,
-    "categoria"                varchar(3)               NOT NULL,
-    "provisoria_ou_definitiva" char(1)                  NOT NULL,
-    "criado_em"                timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "atualizado_em"            timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "deletado_em"              timestamp with time zone          DEFAULT NULL
-);
-
-CREATE TABLE IF NOT EXISTS "entregadores"
-(
-    "id"            SERIAL PRIMARY KEY,
-    "id_telefone"   integer                  NOT NULL,
-    "id_veiculo"    integer                  NOT NULL,
-    "nome"          varchar(255)             NOT NULL,
-    "sobrenome"     varchar(255)             NOT NULL,
-    "cpf"           varchar(255)             NOT NULL,
-    "rg"            varchar(255)             NOT NULL,
-    "id_cnh"        integer                  NOT NULL,
-    "criado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "atualizado_em" timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "deletado_em"   timestamp with time zone          DEFAULT NULL,
-    CONSTRAINT fk_entregadores
-        FOREIGN KEY (id_telefone)
-            REFERENCES telefones (id)
-            ON DELETE CASCADE,
-    CONSTRAINT fk_entregadores1
-        FOREIGN KEY (id_veiculo)
-            REFERENCES veiculos (id)
-            ON DELETE CASCADE,
-    CONSTRAINT fk_entregadores2
-        FOREIGN KEY (id_cnh)
-            REFERENCES cnhs (id)
-            ON DELETE CASCADE
-);
-
 CREATE TABLE IF NOT EXISTS "restaurantes"
 (
     "id"            SERIAL PRIMARY KEY,
+    "id_telefone" integer NOT NULL,
     "cnpj"          varchar(20)              NOT NULL,
     "razao_social"  varchar(255)             NOT NULL,
     "nome_fantasia" varchar(255)             NOT NULL,
@@ -183,6 +132,10 @@ CREATE TABLE IF NOT EXISTS "restaurantes"
     CONSTRAINT fk_restaurantes
         FOREIGN KEY (id_endereco)
             REFERENCES enderecos (id)
+            ON DELETE CASCADE,
+    CONSTRAINT fk_restaurantes1
+        FOREIGN KEY (id_telefone)
+            REFERENCES telefones (id)
             ON DELETE CASCADE
 );
 
@@ -285,7 +238,6 @@ CREATE TABLE IF NOT EXISTS "pedidos"
     "id"                SERIAL PRIMARY KEY,
     "id_cliente"        integer                  NOT NULL,
     "id_restaurante"    integer                  NOT NULL,
-    "id_entregador"     integer                  NOT NULL,
     "id_status_entrega" integer                  NOT NULL,
     "criado_em"         timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "atualizado_em"     timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -297,10 +249,6 @@ CREATE TABLE IF NOT EXISTS "pedidos"
     CONSTRAINT fk_pedidos1
         FOREIGN KEY (id_restaurante)
             REFERENCES restaurantes (id)
-            ON DELETE CASCADE,
-    CONSTRAINT fk_pedidos2
-        FOREIGN KEY (id_entregador)
-            REFERENCES entregadores (id)
             ON DELETE CASCADE,
     CONSTRAINT fk_pedidos3
         FOREIGN KEY (id_status_entrega)
@@ -419,25 +367,6 @@ CREATE TABLE IF NOT EXISTS "avaliacoes_pratos"
             ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS "avaliacoes_entregadores"
-(
-    "id"            SERIAL PRIMARY KEY,
-    "id_cliente"    integer                                 NOT NULL,
-    "id_entregador" integer                                 NOT NULL,
-    "nota"          INTEGER CHECK (nota >= 1 AND nota <= 5) NOT NULL,
-    "comentario"    varchar(255)                            NOT NULL,
-    "criado_em"     timestamp with time zone                NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "atualizado_em" timestamp with time zone                NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "deletado_em"   timestamp with time zone                         DEFAULT NULL,
-    CONSTRAINT fk_avaliacoes_entregadores
-        FOREIGN KEY (id_cliente)
-            REFERENCES clientes (id)
-            ON DELETE CASCADE,
-    CONSTRAINT fk_avaliacoes_entregadores1
-        FOREIGN KEY (id_entregador)
-            REFERENCES entregadores (id)
-            ON DELETE CASCADE
-);
 
 CREATE TABLE IF NOT EXISTS "restricoes_alimentares"
 (
