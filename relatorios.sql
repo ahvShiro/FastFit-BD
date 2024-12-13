@@ -1,262 +1,264 @@
 ------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------ CADASTROS ------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
+-- Relatório de Tipos de Telefone
+SELECT *
+FROM "tipos_telefone";
+
+-- Relatório de Telefones
+SELECT *
+FROM "telefones";
+
+-- Relatório de Endereços
+SELECT *
+FROM "enderecos";
+
+-- Relatório de Objetivos
+SELECT *
+FROM "objetivos";
+
+-- Relatório de Níveis de Atividade
+SELECT *
+FROM "niveis_atividade";
+
+-- Relatório de Dados Corporais
+SELECT *
+FROM "dados_corporais";
+
+-- Relatório de Clientes
+SELECT *
+FROM "clientes";
+
+-- Relatório de Restaurantes
+SELECT *
+FROM "restaurantes";
+
+-- Relatório de Macros
+SELECT *
+FROM "macros";
+
+-- Relatório de Adicionais
+SELECT *
+FROM "adicionais";
+
+-- Relatório de Ingredientes
+SELECT *
+FROM "ingredientes";
+
+-- Relatório de Pratos
+SELECT *
+FROM "pratos";
+
+-- Relatório de Ingredientes Pratos
+SELECT *
+FROM "ingredientes_pratos";
+
+-- Relatório de Status de Pedidos
+SELECT *
+FROM "status_pedidos";
+
+-- Relatório de Métodos de Pagamentos
+SELECT *
+FROM "metodos_pagamentos";
+
+-- Relatório de Status de Pagamentos
+SELECT *
+FROM "status_pagamentos";
+
+-- Relatório de Estornos
+SELECT *
+FROM "estornos";
+
+-- Relatório de Avaliações de Restaurantes
+SELECT *
+FROM "avaliacoes_restaurantes";
+
+-- Relatório de Avaliações de Pratos
+SELECT *
+FROM "avaliacoes_pratos";
+
+-- Relatório de Restrições Alimentares
+SELECT *
+FROM "restricoes_alimentares";
+
+-- Relatório de Cupons
+SELECT *
+FROM "cupons";
+
+-- Relatório de Preferências
+SELECT *
+FROM "preferencias";
+
+-- Relatório de Necessidades Nutricionais
+SELECT *
+FROM "necessidades_nutricionais";
+
+-- Relatório de Necessidades de Clientes
+SELECT *
+FROM "necessidades_clientes";
+
+-- Relatório de Pedidos Pratos
+SELECT *
+FROM "pedidos_pratos";
+
+
+------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------ MOVIMENTOS ------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
 
+-- Relatório de Pedidos
+SELECT *
+FROM "pedidos";
 
--- Relatório de Cadastro de Tipos de Telefone
-SELECT id, tipo
-FROM tipos_telefone;
+-- Relatório de Pagamentos
+SELECT *
+FROM "pagamentos";
 
--- Relatório de Registro de Telefones com Tipos de Telefone
-SELECT telefones.id AS id_telefone,
-       telefones.numero,
-       tipos_telefone.tipo,
-       telefones.criado_em,
-       telefones.atualizado_em,
-       telefones.deletado_em
-FROM telefones
-         JOIN tipos_telefone ON telefones.id_tipo_telefone = tipos_telefone.id;
+-- Relatório de Pagamentos Pedidos
+SELECT *
+FROM "pagamentos_pedidos";
 
--- Relatório de Cadastro de Endereços
-SELECT id, estado, cidade, bairro, rua, numero, cep
-FROM enderecos;
+-- Relatório de Ingredientes por Prato
+SELECT pratos.nome                           AS "Prato",
+       ingredientes.ingrediente              AS "Ingrediente",
+       ingredientes_pratos.quantidade        AS "Quantidade",
+       ingredientes_pratos.unidade_de_medida AS "Unidade"
+FROM ingredientes_pratos
+         JOIN pratos ON ingredientes_pratos.id_prato = pratos.id
+         JOIN ingredientes ON ingredientes_pratos.id_ingrediente = ingredientes.id;
 
--- Relatório de Cadastro de Objetivos
-SELECT id, nome_objetivo
-FROM objetivos;
-
--- Relatório de Cadastro de Níveis de Atividade
-SELECT id, nome
-FROM niveis_atividade;
-
--- Relatório de Cadastro de Dados Corporais com Objetivos e Níveis de Atividade
-SELECT dados_corporais.id,
-       dados_corporais.idade,
-       dados_corporais.sexo,
-       dados_corporais.altura,
-       dados_corporais.peso,
-       objetivos.nome_objetivo,
-       niveis_atividade.nome
-FROM dados_corporais
-         JOIN objetivos ON dados_corporais.objetivo = objetivos.id
-         JOIN niveis_atividade ON dados_corporais.nivel_atividade = niveis_atividade.id;
-
--- Relatório de Cadastro de Clientes com Endereços, Dados Corporais e Telefones
-SELECT clientes.id,
-       clientes.nome,
-       clientes.sobrenome,
-       enderecos.cidade,
-       enderecos.estado,
-       dados_corporais.altura,
-       dados_corporais.peso,
-       telefones.numero
-FROM clientes
-         JOIN enderecos ON clientes.id_endereco = enderecos.id
-         JOIN dados_corporais ON clientes.id_dados_corporais = dados_corporais.id
-         JOIN telefones ON clientes.id_telefone = telefones.id;
-
--- Relatório de Cadastro de Veículos
-SELECT id, tipo, placa, modelo, marca
-FROM veiculos;
-
--- Relatório de Cadastro de CNHs
-SELECT id, registro, data_emissao, data_validade, categoria
-FROM cnhs;
-
--- Relatório de Cadastro de Entregadores com Telefones, Veículos e CNHs
-SELECT entregadores.id,
-       entregadores.nome,
-       entregadores.sobrenome,
-       telefones.numero,
-       veiculos.tipo,
-       veiculos.placa,
-       cnhs.registro
-FROM entregadores
-         JOIN telefones ON entregadores.id_telefone = telefones.id
-         JOIN veiculos ON entregadores.id_veiculo = veiculos.id
-         JOIN cnhs ON entregadores.id_cnh = cnhs.id;
-
--- Relatório de Cadastro de Restaurantes com Endereços
-SELECT restaurantes.id, restaurantes.nome_fantasia, enderecos.cidade, enderecos.estado
-FROM restaurantes
-         JOIN enderecos ON restaurantes.id_endereco = enderecos.id;
-
--- Relatório de Cadastro de Macros
-SELECT id, proteinas, carboidratos, gorduras
-FROM macros;
-
--- Relatório de Cadastro de Ingredientes
-SELECT id, ingrediente, kosher, halal
-FROM ingredientes;
-
--- Relatório de Cadastro de Pratos com Macros e Restaurantes
-SELECT pratos.id,
-       pratos.nome,
-       pratos.preco,
-       macros.proteinas,
-       macros.carboidratos,
-       macros.gorduras,
-       restaurantes.nome_fantasia
-FROM pratos
-         JOIN macros ON pratos.id_macro = macros.id
-         JOIN restaurantes ON pratos.id_restaurante = restaurantes.id;
-
--- Relatório de Cadastro de Ingredientes Pratos com Ingredientes e Pratos
-SELECT ingredientes_pratos.id,
-       ingredientes.ingrediente,
-       pratos.nome AS nome_prato,
-       ingredientes_pratos.quantidade,
-       ingredientes_pratos.unidade_de_medida
+-- Relatório de Total de Ingredientes Utilizados
+SELECT ingredientes.ingrediente              AS "Ingrediente",
+       SUM(ingredientes_pratos.quantidade)   AS "Quantidade Total",
+       ingredientes_pratos.unidade_de_medida AS "Unidade"
 FROM ingredientes_pratos
          JOIN ingredientes ON ingredientes_pratos.id_ingrediente = ingredientes.id
-         JOIN pratos ON ingredientes_pratos.id_prato = pratos.id;
+GROUP BY ingredientes.ingrediente, ingredientes_pratos.unidade_de_medida;
 
--- Relatório de Cadastro de Status de Pedidos
-SELECT id, status
-FROM status_pedidos;
+-- Relatório de Pedidos por Cliente
+SELECT clientes.nome         AS "Cliente",
+       pedidos.id            AS "ID Pedido",
+       pedidos.criado_em     AS "Data do Pedido",
+       status_pedidos.status AS "Status"
+FROM pedidos
+         JOIN clientes ON pedidos.id_cliente = clientes.id
+         JOIN status_pedidos ON pedidos.id_status_entrega = status_pedidos.id;
 
--- Relatório de Cadastro de Métodos de Pagamento
-SELECT id, metodo
-FROM metodos_pagamentos;
+-- Relatório de Pedidos por Restaurante
+SELECT restaurantes.nome_fantasia AS "Restaurante",
+       pedidos.id                 AS "ID Pedido",
+       pedidos.criado_em          AS "Data do Pedido",
+       status_pedidos.status      AS "Status"
+FROM pedidos
+         JOIN restaurantes ON pedidos.id_restaurante = restaurantes.id
+         JOIN status_pedidos ON pedidos.id_status_entrega = status_pedidos.id;
 
--- Relatório de Cadastro de Status de Pagamentos
-SELECT id, status
-FROM status_pagamentos;
-
--- Relatório de Cadastro de Cupons com Restaurantes
-SELECT cupons.id, cupons.codigo, cupons.descricao, cupons.desconto, restaurantes.nome_fantasia
-FROM cupons
-         JOIN restaurantes ON cupons.id_restaurante = restaurantes.id;
-
--- Relatório de Cadastro de Preferências com Clientes e Pratos
-SELECT preferencias.id, clientes.nome AS nome_cliente, pratos.nome AS nome_prato, preferencias.filtro_usado
-FROM preferencias
-         JOIN clientes ON preferencias.id_cliente = clientes.id
-         LEFT JOIN pratos ON preferencias.id_prato = pratos.id;
-
--- Relatório de Cadastro de Necessidades Nutricionais
-SELECT id, tipo_refeicao, calorias
-FROM necessidades_nutricionais;
-
--- Relatório de Cadastro de Necessidades dos Clientes com Necessidades Nutricionais e Clientes
-SELECT necessidades_clientes.id, necessidades_nutricionais.tipo_refeicao, clientes.nome
-FROM necessidades_clientes
-         JOIN necessidades_nutricionais
-              ON necessidades_clientes.id_necessidades_nutricionais = necessidades_nutricionais.id
-         JOIN clientes ON necessidades_clientes.id_cliente = clientes.id;
-
-
--- Relatório de Restrições Alimentares com Clientes e Ingredientes
-SELECT restricoes_alimentares.id, clientes.nome AS nome_cliente, ingredientes.ingrediente
-FROM restricoes_alimentares
-         JOIN clientes ON restricoes_alimentares.id_cliente = clientes.id
-         JOIN ingredientes ON restricoes_alimentares.id_ingrediente = ingredientes.id;
-
-
-
-------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------- MOVIMENTOS ------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------
-
--- Relatório Completo de Pagamentos Realizados
-SELECT pagamentos.id              AS id_pagamento,
-       pagamentos.data_pagamento,
-       pagamentos.valor_pago,
-       metodos_pagamentos.metodo  AS metodo_pagamento,
-       status_pagamentos.status   AS status_pagamento,
-       pedidos.id                 AS id_pedido,
-       clientes.nome              AS nome_cliente,
-       restaurantes.nome_fantasia AS nome_restaurante
+-- Relatório de Pagamentos Realizados
+SELECT pagamentos.id             AS "ID Pagamento",
+       pagamentos.data_pagamento AS "Data",
+       pagamentos.valor_pago     AS "Valor Pago",
+       metodos_pagamentos.metodo AS "Método",
+       status_pagamentos.status  AS "Status"
 FROM pagamentos
-         JOIN metodos_pagamentos ON pagamentos.metodo_pagamento = metodos_pagamentos.id
-         JOIN status_pagamentos ON pagamentos.status_pagamento = status_pagamentos.id
-         JOIN pagamentos_pedidos ON pagamentos.id = pagamentos_pedidos.id_pagamento
-         JOIN pedidos ON pagamentos_pedidos.id_pedido = pedidos.id
-         JOIN clientes ON pedidos.id_cliente = clientes.id
-         JOIN restaurantes ON pedidos.id_restaurante = restaurantes.id;
-
--- Relatório Completo dos Pedidos Ralizados
-SELECT pedidos.id                                 AS id_pedido,
-       pedidos.criado_em,
-       clientes.nome                              AS nome_cliente,
-       clientes.sobrenome                         AS sobrenome_cliente,
-       clientes.email                             AS email_cliente,
-       restaurantes.nome_fantasia                 AS nome_restaurante,
-       restaurantes.cnpj                          AS cnpj_restaurante,
-       pratos.nome                                AS nome_prato,
-       pratos.preco                               AS preco_prato,
-       pedidos_pratos.quantidade,
-       (pratos.preco * pedidos_pratos.quantidade) AS valor_total_prato
-FROM pedidos
-         JOIN clientes ON pedidos.id_cliente = clientes.id
-         JOIN restaurantes ON pedidos.id_restaurante = restaurantes.id
-         JOIN pedidos_pratos ON pedidos.id = pedidos_pratos.id_pedido
-         JOIN pratos ON pedidos_pratos.id_prato = pratos.id;
-
-
--- Relatório Completasso de Todas as Movimentações (Pedidos com Clientes, Restaurantes, Entregadores, Status de Entrega, Pratos e Pagamentos)
-SELECT pedidos.id                                 AS id_pedido,
-       pedidos.criado_em                          AS data_pedido,
-       clientes.nome                              AS nome_cliente,
-       clientes.sobrenome                         AS sobrenome_cliente,
-       clientes.email                             AS email_cliente,
-       restaurantes.nome_fantasia                 AS nome_restaurante,
-       restaurantes.cnpj                          AS cnpj_restaurante,
-       pratos.nome                                AS nome_prato,
-       pratos.preco                               AS preco_prato,
-       pedidos_pratos.quantidade,
-       (pratos.preco * pedidos_pratos.quantidade) AS valor_total_prato,
-       entregadores.nome                          AS nome_entregador,
-       entregadores.sobrenome                     AS sobrenome_entregador,
-       entregadores.cpf                           AS cpf_entregador,
-       status_pedidos.status                      AS status_entrega,
-       pagamentos.id                              AS id_pagamento,
-       pagamentos.data_pagamento,
-       pagamentos.valor_pago,
-       metodos_pagamentos.metodo                  AS metodo_pagamento,
-       status_pagamentos.status                   AS status_pagamento
-FROM pedidos
-         JOIN clientes ON pedidos.id_cliente = clientes.id
-         JOIN restaurantes ON pedidos.id_restaurante = restaurantes.id
-         JOIN pedidos_pratos ON pedidos.id = pedidos_pratos.id_pedido
-         JOIN pratos ON pedidos_pratos.id_prato = pratos.id
-         JOIN entregadores ON pedidos.id_entregador = entregadores.id
-         JOIN status_pedidos ON pedidos.id_status_entrega = status_pedidos.id
-         JOIN pagamentos_pedidos ON pedidos.id = pagamentos_pedidos.id_pedido
-         JOIN pagamentos ON pagamentos_pedidos.id_pagamento = pagamentos.id
          JOIN metodos_pagamentos ON pagamentos.metodo_pagamento = metodos_pagamentos.id
          JOIN status_pagamentos ON pagamentos.status_pagamento = status_pagamentos.id;
 
--- Relatório de Avaliações de Restaurantes com Clientes e Restaurantes
-SELECT avaliacoes_restaurantes.id AS id_avaliacao,
-       clientes.nome              AS nome_cliente,
-       restaurantes.nome_fantasia AS nome_restaurante,
-       avaliacoes_restaurantes.nota,
-       avaliacoes_restaurantes.comentario,
-       avaliacoes_restaurantes.atualizado_em
+-- Relatório de Pagamentos por Cliente
+SELECT clientes.nome             AS "Cliente",
+       pagamentos.id             AS "ID Pagamento",
+       pagamentos.valor_pago     AS "Valor Pago",
+       pagamentos.data_pagamento AS "Data"
+FROM pagamentos_pedidos
+         JOIN pagamentos ON pagamentos_pedidos.id_pagamento = pagamentos.id
+         JOIN pedidos ON pagamentos_pedidos.id_pedido = pedidos.id
+         JOIN clientes ON pedidos.id_cliente = clientes.id;
+
+-- Relatório de Pagamentos Associados a Pedidos
+SELECT pagamentos.id             AS "ID Pagamento",
+       pedidos.id                AS "ID Pedido",
+       pagamentos.valor_pago     AS "Valor Pago",
+       pagamentos.data_pagamento AS "Data do Pagamento"
+FROM pagamentos_pedidos
+         JOIN pagamentos ON pagamentos_pedidos.id_pagamento = pagamentos.id
+         JOIN pedidos ON pagamentos_pedidos.id_pedido = pedidos.id;
+
+-- Relatório de Total Pago por Pedido
+SELECT pedidos.id                 AS "ID Pedido",
+       SUM(pagamentos.valor_pago) AS "Total Pago"
+FROM pagamentos_pedidos
+         JOIN pagamentos ON pagamentos_pedidos.id_pagamento = pagamentos.id
+         JOIN pedidos ON pagamentos_pedidos.id_pedido = pedidos.id
+GROUP BY pedidos.id;
+
+-- Relatório de Estornos Realizados
+SELECT estornos.id        AS "ID Estorno",
+       estornos.valor     AS "Valor Estornado",
+       estornos.motivo    AS "Motivo",
+       estornos.criado_em AS "Data do Estorno"
+FROM estornos;
+
+-- Relatório de Estornos por Cliente
+SELECT clientes.nome      AS "Cliente",
+       estornos.valor     AS "Valor Estornado",
+       estornos.motivo    AS "Motivo",
+       estornos.criado_em AS "Data do Estorno"
+FROM estornos
+         JOIN pagamentos ON estornos.id_pagamento = pagamentos.id
+         JOIN pagamentos_pedidos ON pagamentos.id = pagamentos_pedidos.id_pagamento
+         JOIN pedidos ON pagamentos_pedidos.id_pedido = pedidos.id
+         JOIN clientes ON pedidos.id_cliente = clientes.id;
+
+-- Relatório de Avaliações dos Restaurantes
+SELECT restaurantes.nome_fantasia         AS "Restaurante",
+       avaliacoes_restaurantes.nota       AS "Nota",
+       avaliacoes_restaurantes.comentario AS "Comentário",
+       clientes.nome                      AS "Cliente"
 FROM avaliacoes_restaurantes
-         JOIN clientes ON avaliacoes_restaurantes.id_cliente = clientes.id
-         JOIN restaurantes ON avaliacoes_restaurantes.id_restaurante = restaurantes.id;
+         JOIN restaurantes ON avaliacoes_restaurantes.id_restaurante = restaurantes.id
+         JOIN clientes ON avaliacoes_restaurantes.id_cliente = clientes.id;
 
--- Relatório de Avaliações de Pratos com Clientes e Pratos
-SELECT avaliacoes_pratos.id AS id_avaliacao,
-       clientes.nome        AS nome_cliente,
-       pratos.nome          AS nome_prato,
-       avaliacoes_pratos.nota,
-       avaliacoes_pratos.comentario,
-       avaliacoes_pratos.atualizado_em
+-- Relatório de Média de Avaliações por Restaurante
+SELECT restaurantes.nome_fantasia        AS "Restaurante",
+       AVG(avaliacoes_restaurantes.nota) AS "Nota Média"
+FROM avaliacoes_restaurantes
+         JOIN restaurantes ON avaliacoes_restaurantes.id_restaurante = restaurantes.id
+GROUP BY restaurantes.nome_fantasia;
+
+-- Relatório de Avaliações dos Pratos
+SELECT pratos.nome                  AS "Prato",
+       avaliacoes_pratos.nota       AS "Nota",
+       avaliacoes_pratos.comentario AS "Comentário",
+       clientes.nome                AS "Cliente"
 FROM avaliacoes_pratos
-         JOIN clientes ON avaliacoes_pratos.id_cliente = clientes.id
-         JOIN pratos ON avaliacoes_pratos.id_prato = pratos.id;
+         JOIN pratos ON avaliacoes_pratos.id_prato = pratos.id
+         JOIN clientes ON avaliacoes_pratos.id_cliente = clientes.id;
 
--- Relatório de Avaliações de Entregadores com Clientes e Entregadores
-SELECT avaliacoes_entregadores.id AS id_avaliacao,
-       clientes.nome              AS nome_cliente,
-       entregadores.nome          AS nome_entregador,
-       entregadores.sobrenome     AS sobrenome_entregador,
-       avaliacoes_entregadores.nota,
-       avaliacoes_entregadores.comentario,
-       avaliacoes_entregadores.atualizado_em
-FROM avaliacoes_entregadores
-         JOIN clientes ON avaliacoes_entregadores.id_cliente = clientes.id
-         JOIN entregadores ON avaliacoes_entregadores.id_entregador = entregadores.id;
+-- Relatório de Top 5 Pratos Mais Bem Avaliados
+SELECT pratos.nome                 AS "Prato",
+       AVG(avaliacoes_pratos.nota) AS "Nota Média"
+FROM avaliacoes_pratos
+         JOIN pratos ON avaliacoes_pratos.id_prato = pratos.id
+GROUP BY pratos.nome
+ORDER BY AVG(avaliacoes_pratos.nota) DESC
+LIMIT 5;
+
+-- Relatório de Necessidades Nutricionais por Cliente
+SELECT clientes.nome                           AS "Cliente",
+       necessidades_nutricionais.tipo_refeicao AS "Tipo de Refeição",
+       necessidades_nutricionais.calorias      AS "Calorias",
+       necessidades_nutricionais.proteinas     AS "Proteínas"
+FROM necessidades_clientes
+         JOIN clientes ON necessidades_clientes.id_cliente = clientes.id
+         JOIN necessidades_nutricionais
+              ON necessidades_clientes.id_necessidades_nutricionais = necessidades_nutricionais.id;
+
+-- Relatório de Clientes com Necessidades Especiais
+SELECT clientes.nome                           AS "Cliente",
+       necessidades_nutricionais.tipo_refeicao AS "Tipo de Refeição",
+       restricoes_alimentares.id_ingrediente   AS "ID Ingrediente Restrito"
+FROM necessidades_clientes
+         JOIN clientes ON necessidades_clientes.id_cliente = clientes.id
+         JOIN necessidades_nutricionais
+              ON necessidades_clientes.id_necessidades_nutricionais = necessidades_nutricionais.id
+         JOIN restricoes_alimentares ON necessidades_clientes.id_cliente = restricoes_alimentares.id_cliente
