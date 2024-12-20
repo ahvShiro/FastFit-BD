@@ -370,9 +370,6 @@ VALUES (1, 1, 5, 'Delicioso!'),
        (4, 7, 5, 'Perfeito!'),
        (5, 10, 4, 'Bom, mas a porção poderia ser maior.');
 
-
-
-
 INSERT INTO "restricoes_alimentares" ("id_cliente", "id_ingrediente")
 VALUES (1, 4),  -- Cliente 1 não pode comer strogonoff
        (2, 11), -- Cliente 2 não pode comer tofu
@@ -383,8 +380,7 @@ VALUES (1, 4),  -- Cliente 1 não pode comer strogonoff
        (7, 14), -- Cliente 7 não pode comer tilápia
        (8, 20), -- Cliente 8 não pode comer lentilha
        (9, 25), -- Cliente 9 não pode comer feijoada
-       (10, 28);
--- Cliente 10 não pode comer homus
+       (10, 28);-- Cliente 10 não pode comer homus
 
 
 -- INSERIR EM TABELA cupons
@@ -405,7 +401,6 @@ VALUES (1, NULL, 'Fit'),
        (5, 5, 'Sem Lactose');
 
 
--- PARA REFAZER MAS SEI N
 INSERT INTO "necessidades_nutricionais"
 ("tipo_refeicao", "calorias", "proteinas", "carboidratos", "fibras", "gorduras_trans", "sodio", "gorduras_saturadas")
 VALUES ('Café da Manhã', 400, 20, 50, 5, 0, 200, 2),
@@ -420,7 +415,6 @@ VALUES ('Café da Manhã', 400, 20, 50, 5, 0, 200, 2),
        ('Recuperação', 500, 30, 65, 6, 0, 250, 3);
 
 -- INSERIR EM TABELA necessidades_clientes
--- ESSE TBM
 INSERT INTO "necessidades_clientes" ("id_necessidades_nutricionais", "id_cliente")
 VALUES (1, 1), -- Lucas: Café da Manhã
        (2, 2), -- Ana: Almoço
@@ -431,8 +425,7 @@ VALUES (1, 1), -- Lucas: Café da Manhã
        (7, 7), -- Renato: Ceia
        (8, 8), -- Patricia: Colação
        (9, 9), -- José: Pré-competição
-       (10, 10);
--- Kai: Recuperação
+       (10, 10); -- Kai: Recuperação
 
 -- INSERIR EM TABELA pedidos_pratos
 -- [23503] ERROR: insert or update on table "pedidos_pratos" violates foreign key constraint "fk_pedidos_pratos1" Detail: Key (id_prato)=(1) is not present in table "pratos".
@@ -457,7 +450,4 @@ VALUES (1, 1, 1),   -- Pedido 1: Frango e Arroz
        (14, 14, 1), -- Pedido 14: Feijoada Vegana com Couve
        (15, 15, 2), -- Pedido 15: Quibe de Abóbora com Homus
        (15, 15, 1); -- Pedido 15: Almôndegas de Grão de Bico
-
-
-
 
